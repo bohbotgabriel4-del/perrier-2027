@@ -103,6 +103,40 @@ h2{font-size:31px;line-height:1.14;font-weight:800;letter-spacing:-.02em;margin-
 .q b{display:block;font-size:14px;font-weight:800;color:var(--yel)}
 .q span{display:block;font-size:16px;font-weight:700;line-height:1.4;margin-top:4px;color:var(--soft)}
 
+
+/* plan v2 */
+.node .sub{display:block;font-size:14.5px;font-weight:600;margin-top:4px;opacity:.85}
+.node.result{border-color:rgba(156,242,196,.6);box-shadow:0 0 0 1px rgba(156,242,196,.25),0 20px 60px rgba(0,10,20,.25)}
+.node.result b{color:var(--mint)}
+.fork,.merge{position:relative;height:50px}
+.fork i,.merge i{position:absolute;display:block;background:rgba(255,255,255,.85)}
+.fork .stem{left:50%;top:0;width:2px;height:18px;margin-left:-1px}
+.fork .bar,.merge .bar{left:25%;right:25%;top:18px;height:2px}
+.merge .bar{top:30px}
+.fork .drop{top:18px;width:2px;height:24px;margin-left:-1px}
+.fork .drop.l{left:25%}.fork .drop.r{left:75%}
+.fork .drop::after,.merge .stem::after{content:"";position:absolute;left:50%;bottom:-8px;transform:translateX(-50%);border-left:7px solid transparent;border-right:7px solid transparent;border-top:9px solid rgba(255,255,255,.95)}
+.merge .rise{top:0;width:2px;height:31px;margin-left:-1px}
+.merge .rise.l{left:25%}.merge .rise.r{left:75%}
+.merge .stem{left:50%;top:30px;width:2px;height:12px;margin-left:-1px}
+.bh{display:flex;justify-content:space-between;align-items:center}
+.cc{font-size:12.5px;font-weight:800;letter-spacing:.06em;border-radius:8px;padding:3px 8px;color:#0B2A22}
+.fr-b .cc{background:var(--mint)} .uk-b .cc{background:var(--aqua)}
+.flowsteps{list-style:none;counter-reset:st;display:flex;flex-direction:column;gap:22px;margin-top:4px}
+.flowsteps li{counter-increment:st;position:relative;display:flex;gap:10px;align-items:flex-start;font-size:15px;font-weight:700;line-height:1.3;color:#fff}
+.flowsteps li::before{content:counter(st);flex:none;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:12.5px;font-weight:800;color:#0B2A22}
+.fr-b .flowsteps li::before{background:var(--mint)} .uk-b .flowsteps li::before{background:var(--aqua)}
+.flowsteps li:not(:last-child)::after{content:"";position:absolute;left:7px;bottom:-17px;border-left:5px solid transparent;border-right:5px solid transparent;border-top:7px solid rgba(255,255,255,.75)}
+.tl-title{font-size:22px;font-weight:800;margin-top:34px;text-shadow:0 2px 14px rgba(0,0,0,.3)}
+.timeline{list-style:none;margin-top:14px;display:flex;flex-direction:column;gap:30px}
+.timeline li{position:relative;display:grid;grid-template-columns:64px 1fr;gap:12px;align-items:start}
+.when{display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:var(--yel);color:#1B1A05;font-size:15px;font-weight:800;text-align:center;line-height:1.1;box-shadow:0 8px 24px rgba(0,0,0,.25)}
+.timeline li:not(:last-child)::after{content:"";position:absolute;left:31px;top:68px;bottom:-20px;width:2px;background:rgba(255,255,255,.85)}
+.timeline li:not(:last-child)::before{content:"";position:absolute;left:25px;bottom:-28px;border-left:7px solid transparent;border-right:7px solid transparent;border-top:9px solid rgba(255,255,255,.95)}
+.tl-card{padding:14px 16px}
+.tl-card b{display:block;font-size:17px;font-weight:800;color:var(--yel)}
+.tl-card span{display:block;font-size:15.5px;font-weight:600;line-height:1.4;margin-top:2px}
+
 /* kpis */
 .north{margin-top:16px;padding:20px}
 .north .hd{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:12.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mint)}
@@ -159,24 +193,33 @@ button:focus-visible{outline:3px solid var(--yel);outline-offset:3px}
 <section>
   <p class="label"><i>2</i>The plan</p>
   <h2>Our plan for 2027</h2>
+  <p class="lead">One idea, two markets, one result.</p>
   <div class="diagram">
-    <div class="glass node root"><small>One idea</small><b>Proof, not polish</b></div>
-    <div class="fork" aria-hidden="true"></div>
+    <div class="glass node root"><small>One idea</small><b>Proof, not polish</b><span class="sub">Show everything, even bad news</span></div>
+    <div class="fork" aria-hidden="true"><i class="stem"></i><i class="bar"></i><i class="drop l"></i><i class="drop r"></i></div>
     <div class="branches">
-      <div class="glass branch fr-b"><small>France · ages 18–26</small><h3>Open Source</h3><span class="money">€3.0m</span>
-        <ul class="steps"><li>QR code on every bottle</li><li>Live feed from the spring</li><li>30 creators, no script</li></ul></div>
-      <div class="glass branch uk-b"><small>UK · ages 21–34</small><h3>Order the green</h3><span class="money">£2.4m</span>
-        <ul class="steps"><li>Mocktails in 1,000 pubs</li><li>First round on Perrier</li><li>Sunday run clubs</li></ul></div>
+      <div class="glass branch fr-b">
+        <div class="bh"><span class="cc">FR</span><span class="money">€3.0m</span></div>
+        <small>France · ages 18–26</small><h3>Open Source</h3>
+        <ol class="flowsteps"><li>QR code on every bottle</li><li>Live feed from the spring</li><li>30 creators, no script</li></ol>
+      </div>
+      <div class="glass branch uk-b">
+        <div class="bh"><span class="cc">UK</span><span class="money">£2.4m</span></div>
+        <small>UK · ages 21–34</small><h3>Order the green</h3>
+        <ol class="flowsteps"><li>Mocktails in 1,000 pubs</li><li>First round on Perrier</li><li>Sunday run clubs</li></ol>
+      </div>
     </div>
-    <div class="merge" aria-hidden="true"></div>
-    <div class="glass node"><small>The result</small><b>Every customer becomes a witness</b></div>
+    <div class="merge" aria-hidden="true"><i class="rise l"></i><i class="rise r"></i><i class="bar"></i><i class="stem"></i></div>
+    <div class="glass node result"><small>The result</small><b>Every customer becomes a witness</b><span class="sub">They scan, share and come back</span></div>
   </div>
-  <div class="road">
-    <div class="glass q"><b>January</b><span>Dry January launch in both markets</span></div>
-    <div class="glass q"><b>Q1</b><span>Independent lab signed</span></div>
-    <div class="glass q"><b>Q2 – Q3</b><span>QR on all bottles, UK pubs roll-out</span></div>
-    <div class="glass q"><b>December</b><span>Results reviewed, scale what works</span></div>
-  </div>
+
+  <h3 class="tl-title">Our 2027 timeline</h3>
+  <ol class="timeline">
+    <li><span class="when">Jan</span><div class="glass tl-card"><b>Launch</b><span>Dry January in both markets: QR pilot in France, first round on Perrier in UK pubs</span></div></li>
+    <li><span class="when">Q1</span><div class="glass tl-card"><b>Proof partner</b><span>Independent lab signed, first results published</span></div></li>
+    <li><span class="when" style="font-size:13px">Q2–Q3</span><div class="glass tl-card"><b>Scale</b><span>QR on all bottles, 1,000 UK pubs, creators and Source Live</span></div></li>
+    <li><span class="when">Dec</span><div class="glass tl-card"><b>Review</b><span>Measure the KPIs, keep what works, cut the rest</span></div></li>
+  </ol>
 </section>
 
 <section>
