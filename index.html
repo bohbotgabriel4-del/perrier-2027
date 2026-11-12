@@ -32,7 +32,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--ink);font-size:17p
 .lang button{font:700 13px var(--font);color:#fff;background:none;border:0;border-radius:999px;padding:6px 12px;cursor:pointer}
 .lang button[aria-pressed="true"]{background:#fff;color:var(--green)}
 .badge{display:inline-block;margin-top:34px;font-size:13px;font-weight:700;background:var(--yel);color:var(--ink);padding:5px 11px;border-radius:999px}
-h1{font-size:44px;line-height:1.08;font-weight:800;letter-spacing:-.02em;margin-top:14px}
+h1{font-size:34px;line-height:1.15;font-weight:800;letter-spacing:-.02em;margin-top:14px}
 .hero p{font-size:19px;line-height:1.45;margin-top:12px;opacity:.95;max-width:26ch}
 .time{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-size:14px;font-weight:600;opacity:.85}
 .time::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--yel)}
@@ -84,6 +84,25 @@ details[open] summary::after{content:"–"}
 .brief ol{margin:8px 0 0 20px}
 .copy{margin-top:12px;font:700 15px var(--font);color:#fff;background:var(--green);border:0;border-radius:999px;padding:11px 18px;cursor:pointer}
 
+
+.what{margin-top:18px;background:rgba(255,255,255,.14);border-radius:16px;padding:14px 16px;font-size:15.5px;line-height:1.5}
+.what b{color:#fff}
+.what ol{margin:6px 0 0 18px}
+/* quiz */
+.quiz{margin-top:16px;border:1.5px solid var(--line);border-radius:20px;padding:18px}
+.qtop{display:flex;justify-content:space-between;font-size:14px;font-weight:700;color:var(--mute)}
+.qbar{height:6px;border-radius:3px;background:var(--line);margin:10px 0 16px;overflow:hidden}
+.qbar i{display:block;height:100%;width:0;background:var(--green);transition:width .3s}
+.qq{font-size:19px;font-weight:800;line-height:1.35;margin-bottom:14px}
+.opts{display:grid;gap:10px}
+.opt{font:700 17px var(--font);text-align:left;color:var(--ink);background:var(--soft);border:1.5px solid var(--line);border-radius:14px;padding:14px 16px;cursor:pointer}
+.opt.good{background:#DDF3E6;border-color:var(--ok);color:#0B5A35}
+.opt.bad{background:#FBE3E1;border-color:#D0473D;color:#8A231C}
+.expl{margin-top:12px;font-size:15.5px;color:var(--text)}
+.next{margin-top:14px;font:700 16px var(--font);color:#fff;background:var(--green);border:0;border-radius:999px;padding:12px 20px;cursor:pointer}
+.score{font-size:48px;font-weight:800;color:var(--green);line-height:1}
+.goal{margin-top:14px;background:var(--soft);border-radius:16px;padding:14px 16px;font-size:16px;color:var(--text)}
+.goal b{color:var(--ink)}
 footer{margin-top:40px;background:var(--ink);color:#fff}
 footer .wrap{padding-top:30px;padding-bottom:max(36px,env(safe-area-inset-bottom))}
 .sign{font-size:28px;font-weight:800;letter-spacing:-.01em}
@@ -105,10 +124,13 @@ button:focus-visible,summary:focus-visible{outline:3px solid var(--yel);outline-
         <button type="button" data-set="en" aria-pressed="false">EN</button>
       </div>
     </div>
-    <span class="badge"><span class="fr">Tu viens de scanner une bouteille</span><span class="en">You just scanned a bottle</span></span>
-    <h1>Perrier 2027</h1>
-    <p><span class="fr">Notre idée : chaque bouteille prouve ce qu’elle contient.</span><span class="en">Our idea: every bottle proves what is inside.</span></p>
-    <span class="time"><span class="fr">Lecture : 1 minute</span><span class="en">Reading time: 1 minute</span></span>
+    <span class="badge"><span class="fr">Démo de notre campagne 2027</span><span class="en">Demo of our 2027 campaign</span></span>
+    <h1><span class="fr">Tu viens de scanner une bouteille Perrier</span><span class="en">You just scanned a Perrier bottle</span></h1>
+    <div class="what">
+      <p class="fr"><b>C’est quoi ce site ?</b> C’est ce que verrait un client en 2027. Notre idée : un QR code sur chaque bouteille, qui montre d’où vient l’eau et ce que dit le labo. Tu viens de le tester.</p>
+      <p class="en"><b>What is this page?</b> It is what a customer would see in 2027. Our idea: a QR code on every bottle that shows where the water comes from and what the lab says. You just tried it.</p>
+    </div>
+    <span class="time"><span class="fr">1 minute · 4 parties</span><span class="en">1 minute · 4 parts</span></span>
   </div>
 </header>
 
@@ -116,19 +138,20 @@ button:focus-visible,summary:focus-visible{outline:3px solid var(--yel);outline-
 
 <section>
   <p class="step">1</p>
-  <h2><span class="fr">Ce que ta bouteille te montrerait</span><span class="en">What your bottle would show you</span></h2>
+  <h2><span class="fr">Ce que tu verrais en scannant</span><span class="en">What you would see when you scan</span></h2>
+  <p class="intro"><span class="fr">Trois infos, sans filtre, pour chaque bouteille.</span><span class="en">Three facts, unfiltered, for every bottle.</span></p>
   <div class="scan">
-    <div class="scan-top"><span>Source Perrier</span><span class="proto"><span class="fr">Prototype</span><span class="en">Prototype</span></span></div>
-    <div class="row"><span class="check"><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><small><span class="fr">Origine</span><span class="en">Origin</span></small><b><span class="fr">Forage de Vergèze, dans le Gard</span><span class="en">Borehole in Vergèze, southern France</span></b></div></div>
-    <div class="row"><span class="check"><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><small><span class="fr">Mise en bouteille</span><span class="en">Bottling</span></small><b><span class="fr">La date et la ligne de ta bouteille</span><span class="en">The date and line of your bottle</span></b></div></div>
-    <div class="row"><span class="check"><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><small><span class="fr">Analyse</span><span class="en">Lab test</span></small><b><span class="fr">Le dernier test d’un labo indépendant, sans filtre</span><span class="en">The latest independent lab test, unfiltered</span></b></div></div>
+    <div class="scan-top"><span><span class="fr">Ta bouteille</span><span class="en">Your bottle</span></span><span class="proto"><span class="fr">Démo</span><span class="en">Demo</span></span></div>
+    <div class="row"><span class="check"><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><small><span class="fr">D’où vient l’eau</span><span class="en">Where the water comes from</span></small><b><span class="fr">Source de Vergèze, dans le Gard</span><span class="en">The Vergèze spring, southern France</span></b></div></div>
+    <div class="row"><span class="check"><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><small><span class="fr">Quand elle a été mise en bouteille</span><span class="en">When it was bottled</span></small><b><span class="fr">La date et la ligne de ta bouteille</span><span class="en">The date and line of your bottle</span></b></div></div>
+    <div class="row"><span class="check"><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><small><span class="fr">Ce que dit le labo</span><span class="en">What the lab says</span></small><b><span class="fr">Le dernier test d’un labo indépendant, même s’il est mauvais</span><span class="en">The latest independent lab test, even a bad one</span></b></div></div>
   </div>
 </section>
 
 <section>
   <p class="step">2</p>
-  <h2><span class="fr">Pourquoi Perrier en a besoin</span><span class="en">Why Perrier needs it</span></h2>
-  <p class="intro"><span class="fr">Tout le monde connaît la marque. Ce qui manque, c’est la confiance.</span><span class="en">Everyone knows the brand. What is missing is trust.</span></p>
+  <h2><span class="fr">Pourquoi on propose ça</span><span class="en">Why we propose this</span></h2>
+  <p class="intro"><span class="fr">Depuis le scandale des eaux traitées, les gens doutent de Perrier. Une promesse ne suffit plus : il faut une preuve.</span><span class="en">Since the treated-water scandal, people doubt Perrier. A promise is no longer enough: it takes proof.</span></p>
   <div class="nums">
     <div class="n"><b>−14%</b><span><span class="fr">de ventes en France en 2025</span><span class="en">sales in France in 2025</span></span></div>
     <div class="n"><b>2 / 7</b><span><span class="fr">forages encore « eau minérale »</span><span class="en">boreholes still “mineral water”</span></span></div>
@@ -138,12 +161,18 @@ button:focus-visible,summary:focus-visible{outline:3px solid var(--yel);outline-
 
 <section>
   <p class="step">3</p>
-  <h2><span class="fr">Notre plan pour 2027</span><span class="en">Our 2027 plan</span></h2>
+  <h2><span class="fr">Teste-toi : 3 questions</span><span class="en">Test yourself: 3 questions</span></h2>
+  <div class="quiz" id="quizBox" aria-live="polite"></div>
+</section>
+
+<section>
+  <p class="step">4</p>
+  <h2><span class="fr">Notre plan 2027 en bref</span><span class="en">Our 2027 plan in short</span></h2>
   <div class="plan">
     <div class="card fr-card">
       <p class="who"><span><span class="fr">France · 18–26 ans</span><span class="en">France · ages 18–26</span></span><em>3,0 M€</em></p>
       <h3>Open Source</h3>
-      <p><span class="fr">Un QR code sur chaque bouteille, un live depuis la source et des créateurs sans script.</span><span class="en">A QR code on every bottle, a live feed from the source and unscripted creators.</span></p>
+      <p><span class="fr">Ce QR code sur chaque bouteille, un live depuis la source et des créateurs sans script.</span><span class="en">This QR code on every bottle, a live feed from the source and unscripted creators.</span></p>
     </div>
     <div class="card uk-card">
       <p class="who"><span><span class="fr">Royaume-Uni · 21–34 ans</span><span class="en">UK · ages 21–34</span></span><em>2,4 M£</em></p>
@@ -151,33 +180,7 @@ button:focus-visible,summary:focus-visible{outline:3px solid var(--yel);outline-
       <p><span class="fr">Les cocktails sans alcool Maison Perrier dans 1 000 pubs, pour ceux qui ne boivent pas ce soir.</span><span class="en">Maison Perrier alcohol-free cocktails in 1,000 pubs, for people not drinking tonight.</span></p>
     </div>
   </div>
-</section>
-
-<section>
-  <p class="step">4</p>
-  <h2><span class="fr">Comment on saura que ça marche</span><span class="en">How we will know it works</span></h2>
-  <ul class="kpis">
-    <li><b>+15</b><span><span class="fr">points de confiance chez les 18–26 ans</span><span class="en">trust points among 18–26s</span></span></li>
-    <li><b>+3%</b><span><span class="fr">de ventes en France</span><span class="en">sales in France</span></span></li>
-    <li><b>2 M</b><span><span class="fr">de scans de QR code</span><span class="en">QR code scans</span></span></li>
-    <li><b>1 000</b><span><span class="fr">pubs au Royaume-Uni</span><span class="en">pubs in the UK</span></span></li>
-    <li><b>3 : 1</b><span><span class="fr">de retour sur chaque euro investi</span><span class="en">return on every euro spent</span></span></li>
-  </ul>
-</section>
-
-<section>
-  <p class="step">5</p>
-  <h2><span class="fr">Les coulisses</span><span class="en">Behind the scenes</span></h2>
-  <p class="intro"><span class="fr">On prône la transparence, alors on montre notre méthode : ce pitch a été préparé avec une IA.</span><span class="en">We preach transparency, so here is our method: this pitch was prepared with an AI.</span></p>
-  <details>
-    <summary><span class="fr">Voir notre consigne</span><span class="en">See our brief</span></summary>
-    <div class="brief">
-      <div class="fr" id="briefFr"><p>Lis nos cours de Strategic Marketing. Nous sommes directeurs marketing de Perrier et présentons la stratégie 2027 à la CMO du groupe : 10 minutes, deux marchés prioritaires, un budget réaliste et 5 KPIs. Prépare :</p><ol><li>la présentation en anglais, avec des faits réels ;</li><li>un rapport écrit ;</li><li>qui dit quoi, slide par slide ;</li><li>un guide en français avec les questions du jury.</li></ol></div>
-      <div class="en" id="briefEn"><p>Read our Strategic Marketing classes. We are Perrier’s marketing directors presenting the 2027 strategy to the group CMO: 10 minutes, two priority markets, a realistic budget and 5 KPIs. Prepare:</p><ol><li>the deck in English, built on real facts;</li><li>a written report;</li><li>who says what, slide by slide;</li><li>a French guide with the jury’s likely questions.</li></ol></div>
-      <button class="copy" id="copyBtn" type="button"><span class="fr">Copier la consigne</span><span class="en">Copy the brief</span></button>
-      <p style="margin-top:12px"><span class="fr">L’IA a proposé, nous avons décidé : la marque, les marchés, les chiffres vérifiés et le texte final.</span><span class="en">The AI proposed, we decided: the brand, the markets, the checked numbers and the final script.</span></p>
-    </div>
-  </details>
+  <p class="goal"><span class="fr"><b>Objectifs fin 2027 :</b> +15 points de confiance, 2 millions de scans, 1 000 pubs, +3 % de ventes en France.</span><span class="en"><b>Targets for end 2027:</b> +15 trust points, 2 million scans, 1,000 pubs, +3% sales in France.</span></p>
 </section>
 
 </main>
@@ -199,12 +202,38 @@ button:focus-visible,summary:focus-visible{outline:3px solid var(--yel);outline-
   var saved='fr';try{saved=localStorage.getItem('lang')||'fr'}catch(e){}
   setLang(saved==='en'?'en':'fr');
 
-  document.getElementById('copyBtn').addEventListener('click',function(){
-    var t=document.getElementById(L()==='fr'?'briefFr':'briefEn').innerText,btn=this,old=btn.innerHTML;
-    function done(){btn.textContent=L()==='fr'?'Copié':'Copied';setTimeout(function(){btn.innerHTML=old},1600)}
-    function fb(){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');done()}catch(e){}document.body.removeChild(a)}
-    try{navigator.clipboard.writeText(t).then(done,fb)}catch(e){fb()}
-  });
+  var Q=[
+    {fr:'En 1990, combien de bouteilles Perrier ont été rappelées ?',en:'In 1990, how many Perrier bottles were recalled?',
+     o:[{fr:'16 millions',en:'16 million'},{fr:'160 millions',en:'160 million'},{fr:'1,6 milliard',en:'1.6 billion'}],a:1,
+     x:{fr:'160 millions, à cause de traces de benzène. Perrier n’a jamais retrouvé sa part de marché.',en:'160 million, because of traces of benzene. Perrier never regained its market share.'}},
+    {fr:'Combien de forages de Vergèze gardent le nom « eau minérale naturelle » ?',en:'How many Vergèze boreholes keep the “natural mineral water” label?',
+     o:[{fr:'2 sur 7',en:'2 out of 7'},{fr:'5 sur 7',en:'5 out of 7'},{fr:'Les 7',en:'All 7'}],a:0,
+     x:{fr:'Seulement 2 sur 7, depuis décembre 2025. C’est pour ça qu’on veut tout montrer.',en:'Only 2 out of 7, since December 2025. That is why we want to show everything.'}},
+    {fr:'Quelle part des moins de 35 ans a fait le Dry January 2026 ?',en:'What share of under-35s did Dry January 2026?',
+     o:[{fr:'18 %',en:'18%'},{fr:'48 %',en:'48%'},{fr:'72 %',en:'72%'}],a:1,
+     x:{fr:'48 % (Toluna-Harris). D’où notre pari sur le sans-alcool au Royaume-Uni.',en:'48% (Toluna-Harris). Hence our bet on alcohol-free in the UK.'}}
+  ];
+  var box=document.getElementById('quizBox'),qi=0,score=0,done=false;
+  function renderQuiz(){
+    var l=L();
+    if(qi>=Q.length){
+      box.innerHTML='<p class="score">'+score+' / 3</p><p class="qq" style="margin-top:10px">'+(l==='fr'?'La confiance se construit avec des preuves.':'Trust is built with proof.')+'</p><button class="next" type="button" id="again">'+(l==='fr'?'Recommencer':'Try again')+'</button>';
+      document.getElementById('again').onclick=function(){qi=0;score=0;renderQuiz()};return;
+    }
+    var q=Q[qi],h='<div class="qtop"><span>Question '+(qi+1)+' / 3</span><span>Score : '+score+'</span></div><div class="qbar"><i style="width:'+(qi/Q.length*100)+'%"></i></div><p class="qq">'+q[l]+'</p><div class="opts">';
+    q.o.forEach(function(o,i){h+='<button class="opt" type="button" data-i="'+i+'">'+o[l]+'</button>'});
+    box.innerHTML=h+'</div>';done=false;
+    box.querySelectorAll('.opt').forEach(function(b){b.onclick=function(){
+      if(done)return;done=true;var i=+b.dataset.i;
+      if(i===q.a){score++;b.classList.add('good')}else{b.classList.add('bad');box.querySelector('[data-i="'+q.a+'"]').classList.add('good')}
+      var e=document.createElement('p');e.className='expl';e.textContent=q.x[l];box.appendChild(e);
+      var n=document.createElement('button');n.className='next';n.type='button';
+      n.textContent=qi<Q.length-1?(l==='fr'?'Question suivante':'Next question'):(l==='fr'?'Voir mon score':'See my score');
+      n.onclick=function(){qi++;renderQuiz()};box.appendChild(n);
+    }});
+  }
+  renderQuiz();
+  btns.forEach(function(b){b.addEventListener('click',renderQuiz)});
 
   /* fine bubbles in the header */
   var c=document.getElementById('fizz'),x=c.getContext('2d'),P=[],W,H,dpr=Math.min(2,devicePixelRatio||1);
