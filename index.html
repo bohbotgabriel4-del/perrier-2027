@@ -158,6 +158,24 @@ main section::before{content:"";position:absolute;left:8%;right:8%;top:0;height:
 main section::after{content:"";position:absolute;left:50%;top:-3px;width:7px;height:7px;margin-left:-3.5px;border-radius:50%;background:var(--yel);box-shadow:0 0 10px rgba(247,210,62,.7)}
 main section:first-child{margin-top:26px}
 
+
+/* v5 */
+.hero2{grid-template-columns:minmax(0,1fr) 108px !important;align-items:end !important}
+.hero2 h1{font-size:38px !important;line-height:1.05}
+.hero2 h1 span{white-space:nowrap}
+.photo{width:108px;height:auto;display:block;margin-bottom:-8px;filter:drop-shadow(0 20px 30px rgba(0,0,0,.35))}
+.trio{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:8px}
+.trio li{display:flex;align-items:center;gap:10px;font-size:16px;font-weight:700}
+.trio li::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--yel);box-shadow:0 0 0 4px rgba(247,210,62,.2)}
+.app-head{padding:16px 18px !important}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:14px 18px 4px}
+.chips span{font-size:14px;font-weight:700;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:6px 11px}
+.per{font-size:13px;font-weight:700;color:var(--mute);margin-left:2px}
+.labs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.labs span{display:flex;justify-content:space-between;align-items:center;font-size:15px;font-weight:700;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:10px 12px}
+.labs span::after{content:"›";font-size:22px;line-height:1;font-weight:700;color:var(--mint)}
+.labs span{min-width:0}
+
 /* kpis */
 .north{margin-top:16px;padding:20px}
 .north .hd{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:12.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mint)}
@@ -248,35 +266,13 @@ button:focus-visible{outline:3px solid var(--yel);outline-offset:3px}
   <div class="top"><span>Albert School · Strategic Marketing</span><span class="live">Live</span></div>
   <div class="hero2">
     <div>
-      <span class="eyebrow" style="margin-top:0">Scan the Source</span>
-      <h1>Welcome to<span>the Source</span></h1>
-      <p>This is the page behind the QR code on every bottle in 2027.</p>
+      <span class="eyebrow" style="margin-top:0">Perrier 2027</span>
+      <h1><span style="background:none;-webkit-background-clip:initial;background-clip:initial;color:#fff">Welcome to</span><span>the Source</span></h1>
+      <p>The page behind the QR code on every bottle.</p>
+      <ul class="trio"><li>Where it comes from</li><li>What is inside</li><li>What the lab found</li></ul>
     </div>
-    <div class="bottle" aria-hidden="true">
-      <svg viewBox="0 0 100 300">
-        <defs>
-          <linearGradient id="gl" x1="0" x2="1"><stop offset="0" stop-color="#7BE08E"/><stop offset=".35" stop-color="#3DBE5C"/><stop offset="1" stop-color="#1D8A3E"/></linearGradient>
-          <linearGradient id="sh" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".25" stop-color="#fff" stop-opacity=".05"/><stop offset="1" stop-color="#000" stop-opacity=".15"/></linearGradient>
-          <clipPath id="bodyclip"><path d="M41 18 H59 V40 C59 70 84 92 84 132 V280 C84 294 74 300 50 300 C26 300 16 294 16 280 V132 C16 92 41 70 41 40 Z"/></clipPath>
-        </defs>
-        <rect x="38" y="0" width="24" height="18" rx="4" fill="#0E4A2A"/>
-        <rect x="38" y="13" width="24" height="5" fill="#0A3A20"/>
-        <path d="M41 18 H59 V40 C59 70 84 92 84 132 V280 C84 294 74 300 50 300 C26 300 16 294 16 280 V132 C16 92 41 70 41 40 Z" fill="url(#gl)"/>
-        <g clip-path="url(#bodyclip)">
-          <rect x="16" y="168" width="68" height="54" fill="#F7D23E"/>
-          <rect x="16" y="176" width="68" height="38" fill="#0E5A34"/>
-          <circle class="inbub" cx="34" cy="270" r="2.2" fill="none" stroke="#fff" stroke-width="1"/>
-          <circle class="inbub" cx="52" cy="285" r="1.6" fill="none" stroke="#fff" stroke-width="1" style="animation-delay:-1s"/>
-          <circle class="inbub" cx="66" cy="262" r="2" fill="none" stroke="#fff" stroke-width="1" style="animation-delay:-2s"/>
-          <circle class="inbub" cx="44" cy="250" r="1.3" fill="none" stroke="#fff" stroke-width="1" style="animation-delay:-.5s"/>
-          <circle class="inbub" cx="60" cy="292" r="1.8" fill="none" stroke="#fff" stroke-width="1" style="animation-delay:-2.6s"/>
-        </g>
-        <path d="M41 18 H59 V40 C59 70 84 92 84 132 V280 C84 294 74 300 50 300 C26 300 16 294 16 280 V132 C16 92 41 70 41 40 Z" fill="url(#sh)"/>
-        <path d="M27 118 C27 98 33 88 39 80" stroke="#fff" stroke-opacity=".6" stroke-width="3" fill="none" stroke-linecap="round"/>
-      </svg>
-    </div>
+    <img class="photo" src="bottle.png" alt="A green Perrier glass bottle with fine bubbles" width="240" height="570">
   </div>
-  <p class="hello">In 2027, every bottle tells you <b>where it comes from</b>, <b>what is inside</b> and <b>what the lab found</b>. No filter. Scroll to see your bottle, then take the quiz.</p>
 </header>
 
 <main class="wrap">
@@ -284,74 +280,33 @@ button:focus-visible{outline:3px solid var(--yel);outline-offset:3px}
 <section>
   <p class="label"><i>1</i>Your bottle</p>
   <h2>What you see when you scan</h2>
-  <p class="lead">Every part of this screen is linked to the bottle in your hand.</p>
   <div class="glass app">
     <div class="app-head">
-      <span class="mini"><svg viewBox="0 0 20 34"><path d="M8 2h4v5c0 3 6 6 6 11v13c0 2-2 3-8 3s-8-1-8-3V18c0-5 6-8 6-11z" fill="#3DBE5C"/></svg></span>
-      <div><b>Sparkling natural mineral water</b><span>1 L glass bottle</span></div>
+      <div><b>Your bottle</b><span>Natural sparkling mineral water · 1 L</span></div>
       <span class="verified">Traced</span>
     </div>
+    <div class="chips"><span>Vergèze, France</span><span>Bottled 14 Jan 2027</span><span>Batch L7014</span></div>
 
     <div class="blk">
-      <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#9CF2C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="16" rx="3"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></span>This bottle</h3>
-      <div class="facts">
-        <div class="fact"><small>Bottled</small><b>14 Jan 2027</b></div>
-        <div class="fact"><small>Line</small><b>Vergèze, line 3</b></div>
-        <div class="fact"><small>Batch</small><b>L7014</b></div>
-        <div class="fact"><small>Best before</small><b>Jan 2029</b></div>
-      </div>
-      <p class="note">Example batch: each bottle shows its own.</p>
-    </div>
-
-    <div class="blk">
-      <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#9CF2C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>Where it comes from</h3>
-      <div class="facts">
-        <div class="fact"><small>Source</small><b>Vergèze, Gard</b></div>
-        <div class="fact"><small>Country</small><b>France</b></div>
-        <div class="fact"><small>Bottled</small><b>At the source</b></div>
-        <div class="fact"><small>Bubbles</small><b>Gas from the source</b></div>
-      </div>
-    </div>
-
-    <div class="blk">
-      <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#9CF2C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg></span>What is inside, per litre</h3>
+      <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#9CF2C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg></span>What is inside <small class="per">per litre</small></h3>
       <div class="minerals">
         <div class="min"><span>Calcium</span><span class="track"><i style="width:100%"></i></span><span>150 mg</span></div>
         <div class="min"><span>Chlorides</span><span class="track"><i style="width:13%"></i></span><span>19 mg</span></div>
         <div class="min"><span>Sulfates</span><span class="track"><i style="width:8%"></i></span><span>11 mg</span></div>
         <div class="min"><span>Sodium</span><span class="track"><i style="width:6%"></i></span><span>7.7 mg</span></div>
-        <div class="min"><span>Magnesium</span><span class="track"><i style="width:4%"></i></span><span>3.6 mg</span></div>
-        <div class="min"><span>Potassium</span><span class="track"><i style="width:2%"></i></span><span>0.17 mg</span></div>
       </div>
-      <div class="ph"><div><b>6.4</b><small>pH</small></div><div><b>450 mg</b><small>dissolved solids</small></div><div><b>0.10 mg</b><small>fluoride</small></div></div>
-      <p class="note">Values from Perrier’s 2025 water quality report.</p>
+      <p class="note">pH 6.4 · Magnesium 3.6 mg · Perrier 2025 water report</p>
     </div>
 
     <div class="blk">
       <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#9CF2C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4A2 2 0 0 0 19 18l-5-9V3"/><path d="M7.5 15h9"/></svg></span>What the lab found</h3>
-      <ul class="checks">
-        <li>Microbiology<em>Report</em></li>
-        <li>Nitrates and pesticides<em>Report</em></li>
-        <li>PFAS and microplastics<em>Report</em></li>
-        <li>Water treatment used<em>Report</em></li>
-      </ul>
-      <p class="promise"><b>Our promise:</b> an independent lab tests every batch, and the full report is here. If a result is bad, you see it here first.</p>
-    </div>
-
-    <div class="blk">
-      <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#9CF2C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/></svg></span>Watch the source</h3>
-      <div class="livecard"><canvas id="livefx" aria-hidden="true"></canvas><span class="tag">LIVE</span><span class="play"></span><span class="where">Vergèze spring, right now</span></div>
-      <p class="note">Every Friday: the weekly lab drop, filmed at the source.</p>
-    </div>
-
-    <div class="blk">
-      <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#9CF2C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6.5 7 .8-5.2 4.8 1.4 7L12 17.6 5.8 21l1.4-7L2 9.3l7-.8z"/></svg></span>Your Source Pass</h3>
-      <div class="pass"><div class="pbar"><i></i></div><p><span>1 of 10 scans</span><span>10 scans = a visit to Vergèze</span></p></div>
+      <div class="labs"><span>Microbiology</span><span>Nitrates</span><span>PFAS</span><span>Treatment</span></div>
+      <p class="promise">Full report from an independent lab, for every batch. <b>A bad result? You see it here first.</b></p>
     </div>
 
     <div class="blk">
       <button class="share" type="button" id="shareBtn">Send this proof to a friend</button>
-      <p class="share-note" id="shareNote">Proof is better shared.</p>
+      <p class="share-note" id="shareNote">Example batch for the demo.</p>
     </div>
   </div>
 </section>
@@ -470,7 +425,6 @@ button:focus-visible{outline:3px solid var(--yel);outline-offset:3px}
     })();
   }
   fizzOn(document.getElementById('fizz'),0,true);
-  fizzOn(document.getElementById('livefx'),40,false);
 })();
 </script>
 </body>
