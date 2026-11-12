@@ -33,7 +33,7 @@ body{font-family:var(--font);color:var(--white);font-size:18px;line-height:1.55;
 .top{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:13px;font-weight:700;color:var(--soft);text-align:left}
 .live{display:inline-flex;align-items:center;gap:8px}
 .live::before{content:"";width:8px;height:8px;border-radius:50%;background:#5BF19B;box-shadow:0 0 0 4px rgba(91,241,155,.25)}
-.eyebrow{display:inline-block;margin-top:44px;font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--mint)}
+.eyebrow{display:inline-block;margin-top:26px;font-size:13px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--mint)}
 h1{font-size:46px;line-height:1.04;font-weight:800;letter-spacing:-.03em;margin-top:12px;text-shadow:0 4px 30px rgba(0,0,0,.25)}
 h1 span{display:block;background:linear-gradient(90deg,var(--mint),var(--aqua));-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero p{font-size:20px;line-height:1.5;color:#fff;text-shadow:0 2px 14px rgba(0,0,0,.35);margin:16px auto 0;max-width:30ch}
@@ -149,6 +149,15 @@ h2{font-size:31px;line-height:1.14;font-weight:800;letter-spacing:-.02em;margin-
 .flowsteps li:not(:last-child) span.ar{display:none}
 .node.result{max-width:440px;margin:0 auto;box-shadow:0 0 0 6px rgba(156,242,196,.14),0 18px 50px rgba(0,0,0,.25)}
 
+
+/* separators and hero v2 */
+.hero .sub2{font-size:17px;font-weight:600;color:var(--soft);margin-top:10px;max-width:32ch}
+.student{display:inline-block;margin-top:26px;font-size:12.5px;font-weight:700;color:var(--soft);background:rgba(2,20,28,.45);border:1px solid var(--edge);border-radius:999px;padding:5px 12px}
+main section{position:relative;padding-top:44px;margin-top:10px}
+main section::before{content:"";position:absolute;left:8%;right:8%;top:0;height:1px;background:linear-gradient(90deg,rgba(255,255,255,0),rgba(255,255,255,.45),rgba(247,210,62,.7),rgba(255,255,255,.45),rgba(255,255,255,0))}
+main section::after{content:"";position:absolute;left:50%;top:-3px;width:7px;height:7px;margin-left:-3.5px;border-radius:50%;background:var(--yel);box-shadow:0 0 10px rgba(247,210,62,.7)}
+main section:first-child{margin-top:26px}
+
 /* kpis */
 .north{margin-top:16px;padding:20px}
 .north .hd{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:12.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--mint)}
@@ -180,9 +189,11 @@ button:focus-visible{outline:3px solid var(--yel);outline-offset:3px}
 <div class="page">
 <header class="hero wrap">
   <div class="top"><span>Albert School · Strategic Marketing</span><span class="live">Live</span></div>
-  <span class="eyebrow">Perrier 2027</span>
-  <h1>You just scanned<span>the Source</span></h1>
-  <p>In 2027, every Perrier bottle would carry this QR code. Scan it, and the bottle proves what is inside.</p>
+  <span class="student">Student project · not an official Perrier page</span><br>
+  <span class="eyebrow">Perrier 2027 · Live demo</span>
+  <h1>Welcome to<span>the Source</span></h1>
+  <p>You just scanned our QR code. In 2027, every Perrier bottle would carry one.</p>
+  <p class="sub2">One scan, and the bottle proves what is inside: where the water comes from, when it was bottled and what the lab found.</p>
   <div class="flow"><span><b>1</b>The scan</span><span><b>2</b>The plan</span><span><b>3</b>The results</span><span><b>4</b>The quiz</span></div>
 </header>
 
