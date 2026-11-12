@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Perrier 2027 · Scan the Source</title>
-<meta name="description" content="Live demo of a student strategy pitch (Albert School): what every Perrier bottle could show in 2027.">
+<title>Scan the Source · Perrier 2027</title>
+<meta name="description" content="What every bottle would show in 2027: where the water comes from, what is inside and what the lab found.">
 <meta name="theme-color" content="#0C5F44">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -180,6 +180,63 @@ footer{padding-top:48px;padding-bottom:max(48px,env(safe-area-inset-bottom));tex
 footer p{font-size:15px;color:var(--mute);margin-top:10px}
 button:focus-visible{outline:3px solid var(--yel);outline-offset:3px}
 @media (max-width:370px){h1{font-size:38px}.kgrid{grid-template-columns:1fr}}
+
+/* v4: hero with bottle, scan app, quiz */
+.hero2{display:grid;grid-template-columns:minmax(0,1fr) 92px;gap:14px;align-items:center;text-align:left;margin-top:28px}
+.hero2 h1{font-size:44px;margin-top:8px}
+.hero2 p{margin:12px 0 0;max-width:none}
+.bottle{width:92px;height:280px}
+.bottle svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 18px 30px rgba(0,0,0,.35))}
+.inbub{animation:up 3.2s linear infinite}
+@keyframes up{0%{transform:translateY(0);opacity:0}15%{opacity:.9}100%{transform:translateY(-150px);opacity:0}}
+@media (prefers-reduced-motion:reduce){.inbub{animation:none;opacity:.6}}
+.hello{margin-top:18px;font-size:16.5px;line-height:1.55;color:#fff;background:rgba(2,20,28,.45);border:1px solid var(--edge);border-radius:18px;padding:14px 16px}
+.hello b{color:var(--yel)}
+
+.app{margin-top:16px;overflow:hidden}
+.app-head{display:flex;align-items:center;gap:14px;padding:18px;background:linear-gradient(135deg,rgba(156,242,196,.22),rgba(143,216,255,.14));border-bottom:1px solid var(--edge)}
+.app-head .mini{flex:none;width:46px;height:46px;border-radius:14px;background:rgba(255,255,255,.14);display:grid;place-items:center}
+.app-head .mini svg{width:20px;height:34px}
+.app-head b{display:block;font-size:18px;font-weight:800}
+.app-head span{display:block;font-size:14px;color:var(--soft)}
+.verified{margin-left:auto;flex:none;font-size:12.5px;font-weight:800;color:#0B2A22;background:var(--mint);border-radius:999px;padding:5px 10px}
+.blk{padding:18px;border-bottom:1px solid rgba(255,255,255,.14)}
+.blk:last-child{border-bottom:0}
+.blk h3{display:flex;align-items:center;gap:10px;font-size:17px;font-weight:800}
+.blk h3 .ico{width:34px;height:34px;border-radius:11px}
+.blk h3 .ico svg{width:18px;height:18px}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.fact{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:11px 12px}
+.fact small{display:block;font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--mint)}
+.fact b{display:block;font-size:16px;font-weight:800;margin-top:2px;line-height:1.3}
+.note{font-size:13px;color:var(--mute);margin-top:10px}
+.minerals{margin-top:14px;display:grid;gap:9px}
+.min{display:grid;grid-template-columns:92px 1fr 74px;gap:10px;align-items:center;font-size:15px}
+.min span:first-child{font-weight:700}
+.min .track{height:8px;border-radius:4px;background:rgba(255,255,255,.12);overflow:hidden}
+.min .track i{display:block;height:100%;border-radius:4px;background:linear-gradient(90deg,var(--mint),var(--aqua))}
+.min span:last-child{text-align:right;font-weight:800;font-variant-numeric:tabular-nums}
+.ph{display:flex;gap:10px;margin-top:12px}
+.ph div{flex:1;text-align:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:10px}
+.ph b{display:block;font-size:20px;font-weight:800;color:var(--aqua)}
+.ph small{font-size:12.5px;color:var(--soft);font-weight:700}
+.checks{list-style:none;margin-top:12px;display:grid;gap:8px}
+.checks li{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:15.5px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:10px 12px}
+.checks li em{font-style:normal;font-size:12.5px;font-weight:800;color:#0B2A22;background:var(--mint);border-radius:999px;padding:3px 9px}
+.promise{margin-top:12px;font-size:15px;color:#fff;background:rgba(247,210,62,.14);border:1px solid rgba(247,210,62,.45);border-radius:14px;padding:10px 12px}
+.promise b{color:var(--yel)}
+.livecard{position:relative;margin-top:14px;height:150px;border-radius:16px;overflow:hidden;background:radial-gradient(120% 90% at 30% 20%,#3FAF7A 0%,#126046 45%,#0B3F6E 100%)}
+.livecard .tag{position:absolute;left:12px;top:12px;font-size:12.5px;font-weight:800;color:#fff;background:#E5413A;border-radius:6px;padding:3px 8px}
+.livecard .where{position:absolute;left:12px;bottom:12px;font-size:15px;font-weight:800;text-shadow:0 2px 10px rgba(0,0,0,.4)}
+.livecard .play{position:absolute;left:50%;top:50%;width:54px;height:54px;margin:-27px 0 0 -27px;border-radius:50%;background:rgba(255,255,255,.22);border:1.5px solid rgba(255,255,255,.6);display:grid;place-items:center}
+.livecard .play::after{content:"";margin-left:4px;border-left:16px solid #fff;border-top:10px solid transparent;border-bottom:10px solid transparent}
+.livecard canvas{position:absolute;inset:0;width:100%;height:100%}
+.pass{margin-top:12px}
+.pbar{height:10px;border-radius:5px;background:rgba(255,255,255,.14);overflow:hidden;margin-top:8px}
+.pbar i{display:block;height:100%;width:10%;background:var(--yel);border-radius:5px}
+.pass p{display:flex;justify-content:space-between;font-size:14.5px;color:var(--soft);margin-top:6px}
+.share{display:block;width:100%;margin-top:4px;font:800 17px var(--font);color:#0B2A22;background:var(--yel);border:0;border-radius:16px;padding:15px;cursor:pointer}
+.share-note{text-align:center;font-size:13.5px;color:var(--mute);margin-top:8px}
 </style>
 </head>
 <body>
@@ -189,29 +246,115 @@ button:focus-visible{outline:3px solid var(--yel);outline-offset:3px}
 <div class="page">
 <header class="hero wrap">
   <div class="top"><span>Albert School · Strategic Marketing</span><span class="live">Live</span></div>
-  <span class="student">Student project · not an official Perrier page</span><br>
-  <span class="eyebrow">Perrier 2027 · Live demo</span>
-  <h1>Welcome to<span>the Source</span></h1>
-  <p>You just scanned our QR code. In 2027, every Perrier bottle would carry one.</p>
-  <p class="sub2">One scan, and the bottle proves what is inside: where the water comes from, when it was bottled and what the lab found.</p>
-  <div class="flow"><span><b>1</b>The scan</span><span><b>2</b>The plan</span><span><b>3</b>The results</span><span><b>4</b>The quiz</span></div>
+  <div class="hero2">
+    <div>
+      <span class="eyebrow" style="margin-top:0">Scan the Source</span>
+      <h1>Welcome to<span>the Source</span></h1>
+      <p>This is the page behind the QR code on every bottle in 2027.</p>
+    </div>
+    <div class="bottle" aria-hidden="true">
+      <svg viewBox="0 0 100 300">
+        <defs>
+          <linearGradient id="gl" x1="0" x2="1"><stop offset="0" stop-color="#7BE08E"/><stop offset=".35" stop-color="#3DBE5C"/><stop offset="1" stop-color="#1D8A3E"/></linearGradient>
+          <linearGradient id="sh" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity=".45"/><stop offset=".25" stop-color="#fff" stop-opacity=".05"/><stop offset="1" stop-color="#000" stop-opacity=".15"/></linearGradient>
+          <clipPath id="bodyclip"><path d="M41 18 H59 V40 C59 70 84 92 84 132 V280 C84 294 74 300 50 300 C26 300 16 294 16 280 V132 C16 92 41 70 41 40 Z"/></clipPath>
+        </defs>
+        <rect x="38" y="0" width="24" height="18" rx="4" fill="#0E4A2A"/>
+        <rect x="38" y="13" width="24" height="5" fill="#0A3A20"/>
+        <path d="M41 18 H59 V40 C59 70 84 92 84 132 V280 C84 294 74 300 50 300 C26 300 16 294 16 280 V132 C16 92 41 70 41 40 Z" fill="url(#gl)"/>
+        <g clip-path="url(#bodyclip)">
+          <rect x="16" y="168" width="68" height="54" fill="#F7D23E"/>
+          <rect x="16" y="176" width="68" height="38" fill="#0E5A34"/>
+          <circle class="inbub" cx="34" cy="270" r="2.2" fill="none" stroke="#fff" stroke-width="1"/>
+          <circle class="inbub" cx="52" cy="285" r="1.6" fill="none" stroke="#fff" stroke-width="1" style="animation-delay:-1s"/>
+          <circle class="inbub" cx="66" cy="262" r="2" fill="none" stroke="#fff" stroke-width="1" style="animation-delay:-2s"/>
+          <circle class="inbub" cx="44" cy="250" r="1.3" fill="none" stroke="#fff" stroke-width="1" style="animation-delay:-.5s"/>
+          <circle class="inbub" cx="60" cy="292" r="1.8" fill="none" stroke="#fff" stroke-width="1" style="animation-delay:-2.6s"/>
+        </g>
+        <path d="M41 18 H59 V40 C59 70 84 92 84 132 V280 C84 294 74 300 50 300 C26 300 16 294 16 280 V132 C16 92 41 70 41 40 Z" fill="url(#sh)"/>
+        <path d="M27 118 C27 98 33 88 39 80" stroke="#fff" stroke-opacity=".6" stroke-width="3" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </div>
+  <p class="hello">In 2027, every bottle tells you <b>where it comes from</b>, <b>what is inside</b> and <b>what the lab found</b>. No filter. Scroll to see your bottle, then take the quiz.</p>
 </header>
 
 <main class="wrap">
 
 <section>
-  <p class="label"><i>1</i>The scan</p>
-  <h2>What your bottle would tell you</h2>
-  <p class="lead">Gabriel and Elie explain the idea now. This is the screen a customer would see.</p>
-  <div class="glass scan">
-    <div class="row"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#9CF2C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><div><small>Origin</small><b>The Vergèze spring, southern France</b></div></div>
-    <div class="row"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#9CF2C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="16" rx="3"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></span><div><small>Bottled</small><b>The date and line of this exact bottle</b></div></div>
-    <div class="row"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#9CF2C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4A2 2 0 0 0 19 18l-5-9V3"/><path d="M7.5 15h9"/></svg></span><div><small>Lab test</small><b>The latest independent result, even a bad one</b></div></div>
+  <p class="label"><i>1</i>Your bottle</p>
+  <h2>What you see when you scan</h2>
+  <p class="lead">Every part of this screen is linked to the bottle in your hand.</p>
+  <div class="glass app">
+    <div class="app-head">
+      <span class="mini"><svg viewBox="0 0 20 34"><path d="M8 2h4v5c0 3 6 6 6 11v13c0 2-2 3-8 3s-8-1-8-3V18c0-5 6-8 6-11z" fill="#3DBE5C"/></svg></span>
+      <div><b>Sparkling natural mineral water</b><span>1 L glass bottle</span></div>
+      <span class="verified">Traced</span>
+    </div>
+
+    <div class="blk">
+      <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#9CF2C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="16" rx="3"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></span>This bottle</h3>
+      <div class="facts">
+        <div class="fact"><small>Bottled</small><b>14 Jan 2027</b></div>
+        <div class="fact"><small>Line</small><b>Vergèze, line 3</b></div>
+        <div class="fact"><small>Batch</small><b>L7014</b></div>
+        <div class="fact"><small>Best before</small><b>Jan 2029</b></div>
+      </div>
+      <p class="note">Example batch: each bottle shows its own.</p>
+    </div>
+
+    <div class="blk">
+      <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#9CF2C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span>Where it comes from</h3>
+      <div class="facts">
+        <div class="fact"><small>Source</small><b>Vergèze, Gard</b></div>
+        <div class="fact"><small>Country</small><b>France</b></div>
+        <div class="fact"><small>Bottled</small><b>At the source</b></div>
+        <div class="fact"><small>Bubbles</small><b>Gas from the source</b></div>
+      </div>
+    </div>
+
+    <div class="blk">
+      <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#9CF2C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.5 6 11a6 6 0 0 1-12 0c0-4.5 6-11 6-11z"/></svg></span>What is inside, per litre</h3>
+      <div class="minerals">
+        <div class="min"><span>Calcium</span><span class="track"><i style="width:100%"></i></span><span>150 mg</span></div>
+        <div class="min"><span>Chlorides</span><span class="track"><i style="width:13%"></i></span><span>19 mg</span></div>
+        <div class="min"><span>Sulfates</span><span class="track"><i style="width:8%"></i></span><span>11 mg</span></div>
+        <div class="min"><span>Sodium</span><span class="track"><i style="width:6%"></i></span><span>7.7 mg</span></div>
+        <div class="min"><span>Magnesium</span><span class="track"><i style="width:4%"></i></span><span>3.6 mg</span></div>
+        <div class="min"><span>Potassium</span><span class="track"><i style="width:2%"></i></span><span>0.17 mg</span></div>
+      </div>
+      <div class="ph"><div><b>6.4</b><small>pH</small></div><div><b>450 mg</b><small>dissolved solids</small></div><div><b>0.10 mg</b><small>fluoride</small></div></div>
+      <p class="note">Values from Perrier’s 2025 water quality report.</p>
+    </div>
+
+    <div class="blk">
+      <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#9CF2C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.8 3h10.4A2 2 0 0 0 19 18l-5-9V3"/><path d="M7.5 15h9"/></svg></span>What the lab found</h3>
+      <ul class="checks">
+        <li>Microbiology<em>Report</em></li>
+        <li>Nitrates and pesticides<em>Report</em></li>
+        <li>PFAS and microplastics<em>Report</em></li>
+        <li>Water treatment used<em>Report</em></li>
+      </ul>
+      <p class="promise"><b>Our promise:</b> an independent lab tests every batch, and the full report is here. If a result is bad, you see it here first.</p>
+    </div>
+
+    <div class="blk">
+      <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#9CF2C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/></svg></span>Watch the source</h3>
+      <div class="livecard"><canvas id="livefx" aria-hidden="true"></canvas><span class="tag">LIVE</span><span class="play"></span><span class="where">Vergèze spring, right now</span></div>
+      <p class="note">Every Friday: the weekly lab drop, filmed at the source.</p>
+    </div>
+
+    <div class="blk">
+      <h3><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#9CF2C4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6.5 7 .8-5.2 4.8 1.4 7L12 17.6 5.8 21l1.4-7L2 9.3l7-.8z"/></svg></span>Your Source Pass</h3>
+      <div class="pass"><div class="pbar"><i></i></div><p><span>1 of 10 scans</span><span>10 scans = a visit to Vergèze</span></p></div>
+    </div>
+
+    <div class="blk">
+      <button class="share" type="button" id="shareBtn">Send this proof to a friend</button>
+      <p class="share-note" id="shareNote">Proof is better shared.</p>
+    </div>
   </div>
-  <span class="demo">Demo screen · student project</span>
 </section>
-
-
 
 <section>
   <p class="label"><i>2</i>The plan</p>
@@ -245,28 +388,10 @@ button:focus-visible{outline:3px solid var(--yel);outline-offset:3px}
   </ol>
 </section>
 
-<section>
-  <p class="label"><i>3</i>The results</p>
-  <h2>How we will know it works</h2>
-  <div class="glass north">
-    <div class="hd"><span>Our north star</span><span class="star">Most important</span></div>
-    <p class="big">+15 pts</p>
-    <p class="kname">Trust among French 18–26s</p>
-    <dl class="kmeta"><dt>Start</dt><dd>Survey in January 2027</dd><dt>Measured</dt><dd>Every quarter, same panel</dd><dt>Why</dt><dd>Trust is what the scandal broke</dd></dl>
-  </div>
-  <div class="kgrid">
-    <div class="glass k"><b>+3%</b><span class="kn">Sales in France</span><span class="kd">Back to growth after 2025</span></div>
-    <div class="glass k"><b>2M</b><span class="kn">QR scans</span><span class="kd">25% scan again within 90 days</span></div>
-    <div class="glass k"><b>1,000</b><span class="kn">UK pubs</span><span class="kd">70% still ordering after 6 months</span></div>
-    <div class="glass k"><b>3:1</b><span class="kn">Return on spend</span><span class="kd">Checked every quarter</span></div>
-  </div>
-  <p class="glass pulse"><b>Every week:</b> how often people share our posts in private messages. What nobody shares after two weeks is cut.</p>
-</section>
-
 <section id="play">
-  <p class="label"><i>4</i>Last step: the quiz</p>
+  <p class="label"><i>3</i>The quiz</p>
   <h2>Do you really know Perrier?</h2>
-  <p class="lead">Three questions, thirty seconds. We will tell you when to start.</p>
+  <p class="lead">Five questions, one minute. We will tell you when to start.</p>
   <div class="glass quiz" id="quizBox" aria-live="polite"></div>
 </section>
 
@@ -275,69 +400,77 @@ button:focus-visible{outline:3px solid var(--yel);outline-offset:3px}
 <footer class="wrap">
   <p class="sign">Proof, <span>not polish.</span></p>
   <p>Gabriel Bohbot &amp; Elie Maarek · Albert School · 2026</p>
-  <p>Student project, not affiliated with Perrier, Nestlé or Platinum Equity.</p>
 </footer>
 </div>
 
 <script>
 (function(){
-  /* quiz */
   var Q=[
     {q:'In 1990, how many Perrier bottles were recalled?',o:['16 million','160 million','1.6 billion'],a:1,
      x:'160 million, because of traces of benzene. Perrier never regained its market share.'},
     {q:'How many Vergèze boreholes keep the “natural mineral water” label?',o:['2 out of 7','5 out of 7','All 7'],a:0,
      x:'Only 2 out of 7, since December 2025. That is why we want to show everything.'},
     {q:'What share of under-35s did Dry January 2026?',o:['18%','48%','72%'],a:1,
-     x:'48% (Toluna-Harris). That is why we bet on alcohol-free in the UK.'}
+     x:'48% (Toluna-Harris). That is why we bet on alcohol-free.'},
+    {q:'How much calcium is in one litre of Perrier?',o:['15 mg','150 mg','1,500 mg'],a:1,
+     x:'150 mg, the main mineral in Perrier. You just saw it on the scan screen.'},
+    {q:'In how many markets is Maison Perrier sold?',o:['12','40','80'],a:2,
+     x:'80 markets. It is the growth engine we use in the UK.'}
   ];
-  var box=document.getElementById('quizBox'),qi=-1,score=0,done=false;
+  var box=document.getElementById('quizBox'),qi=-1,score=0,done=false,N=Q.length;
   function render(){
     if(qi<0){
-      box.innerHTML='<div class="start"><p class="qq" style="margin-bottom:6px">Ready?</p><p>Wait for our signal at the end, then go.</p><button class="next" type="button" id="go">Start the quiz</button></div>';
+      box.innerHTML='<div class="start"><p class="qq" style="margin-bottom:6px">Ready?</p><p>Wait for our signal, then go.</p><button class="next" type="button" id="go">Start the quiz</button></div>';
       document.getElementById('go').onclick=function(){qi=0;render()};return;
     }
-    if(qi>=Q.length){
-      box.innerHTML='<div class="start"><p class="score">'+score+' / 3</p><p class="qq" style="margin:12px 0 0">'+(score===3?'Perfect. You trust the facts.':score===2?'Close. Proof beats guesses.':'Now you know why Perrier needs proof.')+'</p><button class="next" type="button" id="again">Play again</button></div>';
+    if(qi>=N){
+      var msg=score===N?'Perfect. You trust the facts.':score>=3?'Well done. Proof beats guesses.':'Now you know why Perrier needs proof.';
+      box.innerHTML='<div class="start"><p class="score">'+score+' / '+N+'</p><p class="qq" style="margin:12px 0 0">'+msg+'</p><button class="next" type="button" id="again">Play again</button></div>';
       document.getElementById('again').onclick=function(){qi=0;score=0;render()};return;
     }
-    var q=Q[qi],h='<div class="qtop"><span>Question '+(qi+1)+' / 3</span><span>Score: '+score+'</span></div><div class="qbar"><i style="width:'+(qi/Q.length*100)+'%"></i></div><p class="qq">'+q.q+'</p><div class="opts">';
+    var q=Q[qi],h='<div class="qtop"><span>Question '+(qi+1)+' / '+N+'</span><span>Score: '+score+'</span></div><div class="qbar"><i style="width:'+(qi/N*100)+'%"></i></div><p class="qq">'+q.q+'</p><div class="opts">';
     q.o.forEach(function(o,i){h+='<button class="opt" type="button" data-i="'+i+'">'+o+'</button>'});
     box.innerHTML=h+'</div>';done=false;
     box.querySelectorAll('.opt').forEach(function(b){b.onclick=function(){
       if(done)return;done=true;var i=+b.dataset.i;
       if(i===q.a){score++;b.classList.add('good')}else{b.classList.add('bad');box.querySelector('[data-i="'+q.a+'"]').classList.add('good')}
       var e=document.createElement('p');e.className='expl';e.textContent=q.x;box.appendChild(e);
-      var n=document.createElement('button');n.className='next';n.type='button';n.textContent=qi<Q.length-1?'Next question':'See my score';
+      var n=document.createElement('button');n.className='next';n.type='button';n.textContent=qi<N-1?'Next question':'See my score';
       n.onclick=function(){qi++;render()};box.appendChild(n);
     }});
   }
   render();
 
-  /* fine bubbles over the whole page */
-  var c=document.getElementById('fizz'),x=c.getContext('2d'),P=[],W,H,dpr=Math.min(2,window.devicePixelRatio||1);
+  var sb=document.getElementById('shareBtn'),sn=document.getElementById('shareNote');
+  sb.addEventListener('click',function(){
+    var url=location.href.split('#')[0];
+    if(navigator.share){navigator.share({title:'Scan the Source',text:'Where my Perrier comes from, and what the lab found.',url:url}).catch(function(){});return}
+    try{navigator.clipboard.writeText(url).then(function(){sn.textContent='Link copied.'},function(){sn.textContent=url})}catch(e){sn.textContent=url}
+  });
+
   var still=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function size(){W=innerWidth;H=innerHeight;c.width=W*dpr;c.height=H*dpr;c.style.width=W+'px';c.style.height=H+'px';x.setTransform(dpr,0,0,dpr,0,0)}
-  size();addEventListener('resize',size);
-  function bubble(init){
-    var big=Math.random()<.14,r=big?3+Math.random()*7:0.7+Math.random()*2;
-    return {x:Math.random()*W,y:init?Math.random()*H:H+12+Math.random()*60,r:r,s:.2+r*.1+Math.random()*.45,w:Math.random()*6,ws:.008+Math.random()*.03,a:big?.35+Math.random()*.3:.3+Math.random()*.5};
+  function fizzOn(c,count,full){
+    var x=c.getContext('2d'),P=[],W,H,dpr=Math.min(2,window.devicePixelRatio||1);
+    function size(){var r=full?{width:innerWidth,height:innerHeight}:c.getBoundingClientRect();W=r.width;H=r.height;c.width=W*dpr;c.height=H*dpr;if(full){c.style.width=W+'px';c.style.height=H+'px'}x.setTransform(dpr,0,0,dpr,0,0)}
+    size();addEventListener('resize',size);
+    function bubble(init){var big=Math.random()<.14,r=big?3+Math.random()*7:0.7+Math.random()*2;
+      return {x:Math.random()*W,y:init?Math.random()*H:H+12+Math.random()*60,r:r,s:.2+r*.1+Math.random()*.45,w:Math.random()*6,ws:.008+Math.random()*.03,a:big?.35+Math.random()*.3:.3+Math.random()*.5}}
+    var n=count||Math.round(Math.min(170,W*H/4200));for(var i=0;i<n;i++)P.push(bubble(true));
+    (function draw(){
+      x.clearRect(0,0,W,H);
+      for(var i=0;i<P.length;i++){var p=P[i];
+        if(!still){p.y-=p.s;p.w+=p.ws;if(p.y<-14)P[i]=p=bubble(false)}
+        var px=p.x+Math.sin(p.w)*(1+p.r*.7);
+        x.beginPath();x.arc(px,p.y,p.r,0,6.283);
+        if(p.r>3){var g=x.createRadialGradient(px-p.r*.3,p.y-p.r*.3,0,px,p.y,p.r);g.addColorStop(0,'rgba(255,255,255,0)');g.addColorStop(.75,'rgba(255,255,255,0.04)');g.addColorStop(1,'rgba(255,255,255,'+(p.a*.5)+')');x.fillStyle=g;x.fill()}
+        x.strokeStyle='rgba(255,255,255,'+p.a+')';x.lineWidth=p.r>3?1.2:.9;x.stroke();
+        if(p.r>1.8){x.beginPath();x.arc(px-p.r*.38,p.y-p.r*.38,p.r*.2,0,6.283);x.fillStyle='rgba(255,255,255,'+Math.min(1,p.a+.2)+')';x.fill()}
+      }
+      if(!still)requestAnimationFrame(draw);
+    })();
   }
-  var count=Math.round(Math.min(170,W*H/4200));
-  for(var i=0;i<count;i++)P.push(bubble(true));
-  function draw(){
-    x.clearRect(0,0,W,H);
-    for(var i=0;i<P.length;i++){
-      var p=P[i];
-      if(!still){p.y-=p.s;p.w+=p.ws;if(p.y<-14)P[i]=p=bubble(false)}
-      var px=p.x+Math.sin(p.w)*(1+p.r*.7);
-      x.beginPath();x.arc(px,p.y,p.r,0,6.283);
-      if(p.r>3){var g=x.createRadialGradient(px-p.r*.3,p.y-p.r*.3,0,px,p.y,p.r);g.addColorStop(0,'rgba(255,255,255,0)');g.addColorStop(.75,'rgba(255,255,255,0.04)');g.addColorStop(1,'rgba(255,255,255,'+(p.a*.5)+')');x.fillStyle=g;x.fill()}
-      x.strokeStyle='rgba(255,255,255,'+p.a+')';x.lineWidth=p.r>3?1.2:.9;x.stroke();
-      if(p.r>1.8){x.beginPath();x.arc(px-p.r*.38,p.y-p.r*.38,p.r*.2,0,6.283);x.fillStyle='rgba(255,255,255,'+Math.min(1,p.a+.2)+')';x.fill()}
-    }
-    if(!still)requestAnimationFrame(draw);
-  }
-  draw();
+  fizzOn(document.getElementById('fizz'),0,true);
+  fizzOn(document.getElementById('livefx'),40,false);
 })();
 </script>
 </body>
