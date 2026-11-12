@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Perrier 2027 · Proof, not polish</title>
+<meta name="description" content="Student strategy pitch by Gabriel Bohbot and Elie Maarek, Albert School. You just scanned the Source.">
+<meta name="theme-color" content="#0B3D2A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500..800&family=Manrope:wght@400..800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --g1:#0B3D2A; --g2:#0E5A3A; --b1:#0A2F6B; --b2:#0B4FA8;
+  --mint:#8EE6B4; --aqua:#7FD3F7; --yel:#F2C81E;
+  --ink:#F7FBFA; --soft:#D3E7E6; --mute:#9DB9C0;
+  --glass:rgba(2,18,28,.42); --line:rgba(255,255,255,.16);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Manrope',system-ui,sans-serif;color:var(--ink);background:#06231A;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.bg{position:fixed;inset:0;z-index:-2;background:linear-gradient(180deg,#0E5A3A 0%,#0B3D2A 28%,#0A3348 55%,#0A2F6B 80%,#071E48 100%)}
+.bubbles{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.bubbles i{position:absolute;bottom:-40px;border:1.6px solid rgba(255,255,255,.55);border-radius:50%;animation:rise linear infinite}
+.bubbles i::after{content:"";position:absolute;width:28%;height:28%;left:20%;top:20%;border-radius:50%;background:rgba(255,255,255,.8)}
+@keyframes rise{to{transform:translateY(-115vh) translateX(var(--dx))}}
+@media (prefers-reduced-motion:reduce){.bubbles i{animation:none;display:none}}
+.wrap{max-width:720px;margin:0 auto;padding:0 20px}
+.notice{font-size:12px;font-weight:600;letter-spacing:.02em;color:var(--soft);background:rgba(0,0,0,.28);text-align:center;padding:8px 16px}
+header.hero{padding-top:56px;padding-bottom:40px}
+.eyebrow{font-size:12px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--mint)}
+h1{font-family:'Bodoni Moda',Georgia,serif;font-weight:600;font-size:clamp(48px,13vw,92px);line-height:.98;letter-spacing:-.02em;margin:14px 0 6px}
+h1 .grad,.grad{background:linear-gradient(90deg,var(--mint),var(--aqua));-webkit-background-clip:text;background-clip:text;color:transparent}
+.bar{width:84px;height:5px;border-radius:3px;background:var(--yel);margin:18px 0}
+.tag{font-size:15px;font-weight:800;letter-spacing:.32em;text-transform:uppercase}
+.lead{font-size:18px;color:var(--soft);margin-top:18px;max-width:560px}
+.who{margin-top:22px;font-size:14px;color:var(--mute)}
+.who b{color:var(--ink)}
+section{padding:34px 0}
+h2{font-family:'Bodoni Moda',Georgia,serif;font-weight:600;font-size:clamp(30px,7.5vw,44px);line-height:1.08;letter-spacing:-.01em}
+h2+.bar{margin:14px 0 22px}
+.card{background:var(--glass);border:1px solid var(--line);border-radius:20px;padding:22px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.source{position:relative;background:#F7FBFA;color:#10222B;border-radius:22px;padding:24px 22px 20px;box-shadow:0 24px 70px rgba(0,0,0,.4);border-top:8px solid #2FBF71}
+.source .lbl{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#0E7A45}
+.source h3{font-family:'Bodoni Moda',Georgia,serif;font-size:28px;font-weight:600;margin:6px 0 14px}
+.row{display:flex;justify-content:space-between;gap:14px;padding:12px 0;border-top:1px solid #DCE6E8;font-size:15px}
+.row span:first-child{color:#5B6B73}
+.row span:last-child{font-weight:700;text-align:right}
+.ok{display:inline-flex;align-items:center;gap:6px;color:#0E7A45}
+.ok::before{content:"";width:9px;height:9px;border-radius:50%;background:#2FBF71}
+.demo{margin-top:14px;font-size:12px;font-weight:600;color:#8A6A00;background:#FFF6D6;border-radius:10px;padding:10px 12px}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.stat .n{font-family:'Bodoni Moda',Georgia,serif;font-size:42px;font-weight:600;line-height:1}
+.stat .t{font-size:14px;font-weight:700;margin-top:8px}
+.stat .s{font-size:12.5px;color:var(--mute);margin-top:4px}
+.moves{display:grid;gap:14px}
+.move .k{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--aqua)}
+.move h3{font-family:'Bodoni Moda',Georgia,serif;font-size:27px;font-weight:600;margin:6px 0 8px;line-height:1.1}
+.move p{color:var(--soft);font-size:15px}
+.move .fix{margin-top:12px;font-size:13px;font-weight:800;color:var(--mint)}
+.move.light{background:linear-gradient(135deg,#8EE6B4,#7FD3F7);color:#06231A;border:none}
+.move.light .k{color:#0B4FA8}.move.light p{color:#143A33}.move.light .fix{color:#0B4FA8}
+.steps{list-style:none;display:grid;gap:14px}
+.steps li{display:flex;gap:16px;align-items:flex-start}
+.num{flex:none;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;background:linear-gradient(135deg,var(--mint),var(--aqua));color:#06231A}
+.steps b{display:block;font-size:16px}
+.steps span{font-size:14px;color:var(--soft)}
+.budget{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.budget .n{font-family:'Bodoni Moda',Georgia,serif;font-size:40px;font-weight:600;line-height:1}
+.budget .t{font-size:13px;color:var(--soft);margin-top:6px}
+.kpis{display:grid;gap:10px}
+.kpi{display:flex;align-items:center;gap:16px;padding:14px 18px}
+.kpi .n{font-family:'Bodoni Moda',Georgia,serif;font-size:32px;font-weight:600;min-width:96px;line-height:1}
+.kpi .t{font-size:14px;color:var(--soft)}
+.kpi .t b{color:var(--ink)}
+.prompt{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;line-height:1.6;color:#E6F3F0;background:rgba(0,0,0,.38);border:1px solid var(--line);border-radius:16px;padding:18px;white-space:pre-wrap;word-break:break-word}
+.copy{margin-top:12px;display:inline-flex;align-items:center;gap:8px;font:800 14px 'Manrope',sans-serif;color:#06231A;background:var(--yel);border:0;border-radius:999px;padding:11px 18px;cursor:pointer}
+.checks{list-style:none;display:grid;gap:10px;margin-top:16px}
+.checks li{font-size:14.5px;color:var(--soft);padding-left:26px;position:relative}
+.checks li::before{content:"";position:absolute;left:0;top:6px;width:14px;height:14px;border-radius:50%;border:2px solid var(--mint)}
+.q{font-size:15px;color:var(--soft)}
+.q b{color:var(--ink)}
+details{border-top:1px solid var(--line);padding:14px 0}
+details:last-child{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;font-weight:800;font-size:16px;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::after{content:"+";color:var(--yel);font-size:22px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{margin-top:10px;color:var(--soft);font-size:15px}
+.src{font-size:13px;color:var(--mute);display:grid;gap:6px}
+footer{padding:40px 0 60px;text-align:center;color:var(--mute);font-size:13px}
+footer .big{font-family:'Bodoni Moda',Georgia,serif;font-size:34px;font-weight:600;margin-bottom:8px}
+nav.jump{position:sticky;top:0;z-index:5;background:rgba(6,30,32,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav.jump .wrap{display:flex;gap:8px;overflow-x:auto;padding:10px 20px;scrollbar-width:none}
+nav.jump a{flex:none;font-size:13px;font-weight:700;color:var(--soft);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:7px 13px}
+nav.jump a:hover{color:var(--ink);border-color:var(--mint)}
+@media (min-width:640px){.moves{grid-template-columns:1fr 1fr}.stats{grid-template-columns:repeat(4,1fr)}}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="bubbles" id="bubbles" aria-hidden="true"></div>
+
+<p class="notice">Student project · Albert School, Strategic Marketing · not affiliated with Perrier or Nestlé</p>
+
+<header class="hero wrap">
+  <p class="eyebrow">You just scanned the Source</p>
+  <h1>Perrier<br><span class="grad">2027</span></h1>
+  <div class="bar"></div>
+  <p class="tag">Proof, not polish</p>
+  <p class="lead">This is the scan we pitched: one QR code on every bottle that shows where the water comes from and what the latest independent test says. Below, the whole strategy in two minutes.</p>
+  <p class="who"><b>Gabriel Bohbot &amp; Elie Maarek</b> · Marketing Directors (role play) · pitch to the Global CMO · 19 November 2026</p>
+</header>
+
+<nav class="jump" aria-label="Sections">
+  <div class="wrap">
+    <a href="#scan">The scan</a><a href="#why">Why</a><a href="#moves">The idea</a><a href="#markets">2 markets</a><a href="#numbers">Budget &amp; KPIs</a><a href="#prompt">The prompt</a><a href="#ask">Ask us</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<section id="scan">
+  <h2>What every bottle would show</h2><div class="bar"></div>
+  <div class="source">
+    <p class="lbl">Source Perrier · scan result</p>
+    <h3>Your bottle, in the open</h3>
+    <div class="row"><span>Borehole</span><span>Vergèze, Gard (France)</span></div>
+    <div class="row"><span>Bottled</span><span>Date and line of this bottle</span></div>
+    <div class="row"><span>Latest lab test</span><span class="ok">Independent lab, raw results</span></div>
+    <div class="row"><span>Watch</span><span>Source Live from Vergèze</span></div>
+    <p class="demo">Prototype screen: it shows what the page would contain, not real test results.</p>
+  </div>
+</section>
+
+<section id="why">
+  <h2>Why Perrier needs this</h2><div class="bar"></div>
+  <div class="stats">
+    <div class="card stat"><div class="n grad">−14%</div><div class="t">Perrier sales in France</div><div class="s">Jan–Apr 2025, while bottled water grew +2.5%</div></div>
+    <div class="card stat"><div class="n grad">2/7</div><div class="t">Boreholes still “mineral”</div><div class="s">Vergèze authorisation, Dec 2025</div></div>
+    <div class="card stat"><div class="n grad">50%</div><div class="t">Sold to Platinum Equity</div><div class="s">Peranel joint venture, announced July 2026</div></div>
+    <div class="card stat"><div class="n grad">1990</div><div class="t">The lesson</div><div class="s">160m bottles recalled; Perrier never regained its share</div></div>
+  </div>
+  <p class="q" style="margin-top:18px">Awareness is not the problem: everyone knows the green bottle. Perrier loses people at two points: <b>trust</b> (before buying) and <b>ritual</b> (after buying).</p>
+</section>
+
+<section id="moves">
+  <h2>Two moves, one idea: proof</h2><div class="bar"></div>
+  <div class="moves">
+    <div class="card move"><p class="k">Move 1 · France · Gen Z 18–26</p><h3>Open Source</h3><p>Radical transparency: a QR code on every bottle and can, raw content from Vergèze, an independent lab.</p><p class="fix">Fixes leak 1: trust</p></div>
+    <div class="card move light"><p class="k">Move 2 · UK · sober-curious 21–34</p><h3>The Champagne of No-Alcohol</h3><p>Maison Perrier becomes the drink you order when you are not drinking. On-trade first.</p><p class="fix">Fixes leak 2: no ritual</p></div>
+  </div>
+</section>
+
+<section id="markets">
+  <h2>Two people we design for</h2><div class="bar"></div>
+  <div class="moves">
+    <div class="card move"><p class="k">France</p><h3>Inès, 22</h3><p>Master’s student in Lyon. “I want a drink I can trust, and that looks good in my story.” 48% of under-35 drinkers did Dry January 2026.</p></div>
+    <div class="card move"><p class="k">United Kingdom</p><h3>James, 28</h3><p>Product designer in Manchester. “I want a great night out and a great Saturday run.” 43% of UK 18–24s drink low or no alcohol.</p></div>
+  </div>
+  <div class="card" style="margin-top:14px">
+    <ul class="steps">
+      <li><div class="num">1</div><div><b>Scan the Source</b><span>A QR code on every bottle, like the one you just used.</span></div></li>
+      <li><div class="num">2</div><div><b>Source Live and creators</b><span>A raw livestream from Vergèze, 30 micro-creators, no script.</span></div></li>
+      <li><div class="num">3</div><div><b>Order the green</b><span>1,000 UK pubs and bars with Maison Perrier mocktails, run clubs, #OrderTheGreen.</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<section id="numbers">
+  <h2>Budget and KPIs</h2><div class="bar"></div>
+  <div class="budget">
+    <div class="card"><div class="n grad">€3.0m</div><div class="t">France: TikTok, Instagram, creators, QR and independent lab</div></div>
+    <div class="card"><div class="n grad">£2.4m</div><div class="t">UK: on-trade programme first, then social</div></div>
+  </div>
+  <p class="q" style="margin:16px 0 12px">Five targets for December 2027:</p>
+  <div class="kpis">
+    <div class="card kpi"><div class="n grad">+15</div><div class="t"><b>Trust points</b> among French 18–26s</div></div>
+    <div class="card kpi"><div class="n grad">+3%</div><div class="t"><b>Value sales</b> in France, back to growth</div></div>
+    <div class="card kpi"><div class="n grad">2m</div><div class="t"><b>QR scans</b>, 25% scanning again within 90 days</div></div>
+    <div class="card kpi"><div class="n grad">1,000</div><div class="t"><b>UK outlets</b>, 70% still ordering after 6 months</div></div>
+    <div class="card kpi"><div class="n grad">3:1</div><div class="t"><b>ROAS and LTV:CAC</b>, CTR at least 1.7%</div></div>
+  </div>
+</section>
+
+<section id="prompt">
+  <h2>Behind the pitch: the prompt</h2><div class="bar"></div>
+  <p class="q" style="margin-bottom:14px">Our strategy is about showing the raw work, so we show ours too. We built this pitch with an AI assistant (Claude). Here is the brief we gave it, translated and shortened:</p>
+  <div class="prompt" id="promptText">Read all our Strategic Marketing course sessions first, then confirm you understood the course and the brief (session 2). We are two Marketing Directors of a brand inside a large group, pitching our 2027 strategy to the Global CMO, Nadia: 10 minutes + 5 minutes of Q&amp;A, 10 to 20 slides.
+
+Brand: Perrier. Cover where the brand stands in 2025–26, what changes in 2027 and why, two priority markets (ideal customer, segmentation, channels and expected results, content ideas, a realistic budget, loyalty) and 4 to 5 KPIs with realistic targets.
+
+Deliver: (1) a rock-solid deck in English, using real facts and a design inspired by Perrier; (2) an English report in the same colours; (3) a speaker split between Gabriel and Elie, slide by slide, the hardest slides for Elie; (4) a French prep guide that ends with likely jury questions, answered in English with the French translation.
+Then we iterated: a green-to-blue design, a video transition, a live QR code that opens this page.</div>
+  <button class="copy" id="copyBtn" type="button">Copy the prompt</button>
+  <ul class="checks">
+    <li>Every number was checked against a dated source (list below).</li>
+    <li>We chose the brand, the two markets and the final ask ourselves, and rewrote the script in our own words.</li>
+    <li>The AI drafted; we decided. Proof, not polish, applies to us too.</li>
+  </ul>
+</section>
+
+<section id="ask">
+  <h2>Ask us anything</h2><div class="bar"></div>
+  <details><summary>Isn’t a QR code on a bottle a gimmick?</summary><p>Only if it shows marketing. Ours shows raw data, including bad results. A bad result published first is what makes the system credible.</p></details>
+  <details><summary>Why the UK and not another market?</summary><p>Maison Perrier launched there in February 2026, the low and no-alcohol market is about £413m, and the gap is distribution in pubs. That is a problem a budget can solve.</p></details>
+  <details><summary>What if a test is bad?</summary><p>We publish it first, with what we are doing about it. Transparency that only shows good news is not transparency.</p></details>
+  <details><summary>Isn’t +3% sales modest?</summary><p>On purpose. After a year of decline, getting back to growth is the realistic first target; trust is the leading indicator.</p></details>
+</section>
+
+<section>
+  <h2>Sources</h2><div class="bar"></div>
+  <div class="src">
+    <p>Circana via 24matins; AFP; Économie Matin (French sales, 2025)</p>
+    <p>Nestlé full-year 2025 results; Nestlé UK (Maison Perrier, Feb 2026)</p>
+    <p>Peranel announcement, 23 July 2026; Nanterre court ruling, Nov 2025</p>
+    <p>Toluna-Harris (Dry January 2026); UK low/no-alcohol market studies 2025</p>
+    <p>Superads, Stackmatix, WordStream (CPM and CTR benchmarks)</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="wrap">
+  <p class="big grad">Proof, not polish.</p>
+  <p>Gabriel Bohbot &amp; Elie Maarek · Albert School · MSc 1 · 2026</p>
+  <p style="margin-top:6px">Student project. Perrier is a trademark of its owners; this page is not affiliated with Perrier, Nestlé or Platinum Equity.</p>
+</footer>
+
+<script>
+(function(){
+  var b=document.getElementById('bubbles');
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  for(var i=0;i<26;i++){
+    var e=document.createElement('i'),s=4+Math.random()*16;
+    e.style.width=e.style.height=s+'px';
+    e.style.left=(Math.random()*100)+'%';
+    e.style.setProperty('--dx',(Math.random()*40-20)+'px');
+    e.style.animationDuration=(9+Math.random()*12)+'s';
+    e.style.animationDelay=(-Math.random()*20)+'s';
+    e.style.opacity=.35+Math.random()*.5;
+    b.appendChild(e);
+  }
+})();
+document.getElementById('copyBtn').addEventListener('click',function(){
+  var t=document.getElementById('promptText').innerText,btn=this;
+  function done(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy the prompt'},1800)}
+  try{navigator.clipboard.writeText(t).then(done,function(){fallback()})}catch(e){fallback()}
+  function fallback(){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');done()}catch(e){}document.body.removeChild(a)}
+});
+</script>
+</body>
+</html>
