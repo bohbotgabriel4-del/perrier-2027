@@ -1,252 +1,336 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr" data-l="fr">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Perrier 2027 · Proof, not polish</title>
-<meta name="description" content="Student strategy pitch by Gabriel Bohbot and Elie Maarek, Albert School. You just scanned the Source.">
-<meta name="theme-color" content="#0B3D2A">
+<title>Perrier 2027 · Scan the Source</title>
+<meta name="description" content="Projet étudiant Albert School : ce que chaque bouteille de Perrier pourrait montrer en 2027.">
+<meta name="theme-color" content="#0B5D3B">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500..800&family=Manrope:wght@400..800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --g1:#0B3D2A; --g2:#0E5A3A; --b1:#0A2F6B; --b2:#0B4FA8;
-  --mint:#8EE6B4; --aqua:#7FD3F7; --yel:#F2C81E;
-  --ink:#F7FBFA; --soft:#D3E7E6; --mute:#9DB9C0;
-  --glass:rgba(2,18,28,.42); --line:rgba(255,255,255,.16);
+  --bg:#0B5D3B; --ink:#FFFFFF; --soft:rgba(255,255,255,.78); --mute:rgba(255,255,255,.6);
+  --yel:#F2C81E; --mint:#9BF0C2; --paper:#FFFFFF; --paper-ink:#0D2A24; --line:rgba(255,255,255,.18);
+  --disp:'Anton',Impact,'Arial Narrow',sans-serif; --body:'Archivo',system-ui,-apple-system,sans-serif;
+  color-scheme:dark;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{font-family:'Manrope',system-ui,sans-serif;color:var(--ink);background:#06231A;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-.bg{position:fixed;inset:0;z-index:-2;background:linear-gradient(180deg,#0E5A3A 0%,#0B3D2A 28%,#0A3348 55%,#0A2F6B 80%,#071E48 100%)}
-.bubbles{position:fixed;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
-.bubbles i{position:absolute;bottom:-40px;border:1.6px solid rgba(255,255,255,.55);border-radius:50%;animation:rise linear infinite}
-.bubbles i::after{content:"";position:absolute;width:28%;height:28%;left:20%;top:20%;border-radius:50%;background:rgba(255,255,255,.8)}
-@keyframes rise{to{transform:translateY(-115vh) translateX(var(--dx))}}
-@media (prefers-reduced-motion:reduce){.bubbles i{animation:none;display:none}}
-.wrap{max-width:720px;margin:0 auto;padding:0 20px}
-.notice{font-size:12px;font-weight:600;letter-spacing:.02em;color:var(--soft);background:rgba(0,0,0,.28);text-align:center;padding:8px 16px}
-header.hero{padding-top:56px;padding-bottom:40px}
-.eyebrow{font-size:12px;font-weight:800;letter-spacing:.24em;text-transform:uppercase;color:var(--mint)}
-h1{font-family:'Bodoni Moda',Georgia,serif;font-weight:600;font-size:clamp(48px,13vw,92px);line-height:.98;letter-spacing:-.02em;margin:14px 0 6px}
-h1 .grad,.grad{background:linear-gradient(90deg,var(--mint),var(--aqua));-webkit-background-clip:text;background-clip:text;color:transparent}
-.bar{width:84px;height:5px;border-radius:3px;background:var(--yel);margin:18px 0}
-.tag{font-size:15px;font-weight:800;letter-spacing:.32em;text-transform:uppercase}
-.lead{font-size:18px;color:var(--soft);margin-top:18px;max-width:560px}
-.who{margin-top:22px;font-size:14px;color:var(--mute)}
-.who b{color:var(--ink)}
-section{padding:34px 0}
-h2{font-family:'Bodoni Moda',Georgia,serif;font-weight:600;font-size:clamp(30px,7.5vw,44px);line-height:1.08;letter-spacing:-.01em}
-h2+.bar{margin:14px 0 22px}
-.card{background:var(--glass);border:1px solid var(--line);border-radius:20px;padding:22px;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
-.source{position:relative;background:#F7FBFA;color:#10222B;border-radius:22px;padding:24px 22px 20px;box-shadow:0 24px 70px rgba(0,0,0,.4);border-top:8px solid #2FBF71}
-.source .lbl{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:#0E7A45}
-.source h3{font-family:'Bodoni Moda',Georgia,serif;font-size:28px;font-weight:600;margin:6px 0 14px}
-.row{display:flex;justify-content:space-between;gap:14px;padding:12px 0;border-top:1px solid #DCE6E8;font-size:15px}
-.row span:first-child{color:#5B6B73}
-.row span:last-child{font-weight:700;text-align:right}
-.ok{display:inline-flex;align-items:center;gap:6px;color:#0E7A45}
-.ok::before{content:"";width:9px;height:9px;border-radius:50%;background:#2FBF71}
-.demo{margin-top:14px;font-size:12px;font-weight:600;color:#8A6A00;background:#FFF6D6;border-radius:10px;padding:10px 12px}
-.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.stat .n{font-family:'Bodoni Moda',Georgia,serif;font-size:42px;font-weight:600;line-height:1}
-.stat .t{font-size:14px;font-weight:700;margin-top:8px}
-.stat .s{font-size:12.5px;color:var(--mute);margin-top:4px}
-.moves{display:grid;gap:14px}
-.move .k{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--aqua)}
-.move h3{font-family:'Bodoni Moda',Georgia,serif;font-size:27px;font-weight:600;margin:6px 0 8px;line-height:1.1}
-.move p{color:var(--soft);font-size:15px}
-.move .fix{margin-top:12px;font-size:13px;font-weight:800;color:var(--mint)}
-.move.light{background:linear-gradient(135deg,#8EE6B4,#7FD3F7);color:#06231A;border:none}
-.move.light .k{color:#0B4FA8}.move.light p{color:#143A33}.move.light .fix{color:#0B4FA8}
-.steps{list-style:none;display:grid;gap:14px}
-.steps li{display:flex;gap:16px;align-items:flex-start}
-.num{flex:none;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;background:linear-gradient(135deg,var(--mint),var(--aqua));color:#06231A}
-.steps b{display:block;font-size:16px}
-.steps span{font-size:14px;color:var(--soft)}
-.budget{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.budget .n{font-family:'Bodoni Moda',Georgia,serif;font-size:40px;font-weight:600;line-height:1}
-.budget .t{font-size:13px;color:var(--soft);margin-top:6px}
-.kpis{display:grid;gap:10px}
-.kpi{display:flex;align-items:center;gap:16px;padding:14px 18px}
-.kpi .n{font-family:'Bodoni Moda',Georgia,serif;font-size:32px;font-weight:600;min-width:96px;line-height:1}
-.kpi .t{font-size:14px;color:var(--soft)}
-.kpi .t b{color:var(--ink)}
-.prompt{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;line-height:1.6;color:#E6F3F0;background:rgba(0,0,0,.38);border:1px solid var(--line);border-radius:16px;padding:18px;white-space:pre-wrap;word-break:break-word}
-.copy{margin-top:12px;display:inline-flex;align-items:center;gap:8px;font:800 14px 'Manrope',sans-serif;color:#06231A;background:var(--yel);border:0;border-radius:999px;padding:11px 18px;cursor:pointer}
-.checks{list-style:none;display:grid;gap:10px;margin-top:16px}
-.checks li{font-size:14.5px;color:var(--soft);padding-left:26px;position:relative}
-.checks li::before{content:"";position:absolute;left:0;top:6px;width:14px;height:14px;border-radius:50%;border:2px solid var(--mint)}
-.q{font-size:15px;color:var(--soft)}
-.q b{color:var(--ink)}
-details{border-top:1px solid var(--line);padding:14px 0}
-details:last-child{border-bottom:1px solid var(--line)}
-summary{cursor:pointer;font-weight:800;font-size:16px;list-style:none;display:flex;justify-content:space-between;gap:12px}
-summary::after{content:"+";color:var(--yel);font-size:22px;line-height:1}
-details[open] summary::after{content:"–"}
-details p{margin-top:10px;color:var(--soft);font-size:15px}
-.src{font-size:13px;color:var(--mute);display:grid;gap:6px}
-footer{padding:40px 0 60px;text-align:center;color:var(--mute);font-size:13px}
-footer .big{font-family:'Bodoni Moda',Georgia,serif;font-size:34px;font-weight:600;margin-bottom:8px}
-nav.jump{position:sticky;top:0;z-index:5;background:rgba(6,30,32,.72);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
-nav.jump .wrap{display:flex;gap:8px;overflow-x:auto;padding:10px 20px;scrollbar-width:none}
-nav.jump a{flex:none;font-size:13px;font-weight:700;color:var(--soft);text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:7px 13px}
-nav.jump a:hover{color:var(--ink);border-color:var(--mint)}
-@media (min-width:640px){.moves{grid-template-columns:1fr 1fr}.stats{grid-template-columns:repeat(4,1fr)}}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);color:var(--ink);background:var(--bg);line-height:1.5;overflow-x:hidden;transition:background-color .2s linear}
+[data-l="fr"] .en,[data-l="en"] .fr{display:none!important}
+.wrap{max-width:560px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left));padding-right:max(20px,env(safe-area-inset-right))}
+#fizz{position:fixed;inset:0;z-index:0;pointer-events:none}
+main,header,footer,.top{position:relative;z-index:1}
+
+/* top bar */
+.top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:max(14px,env(safe-area-inset-top));padding-bottom:14px}
+.tag{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+.lang{display:flex;border:1.5px solid var(--line);border-radius:999px;overflow:hidden}
+.lang button{font:700 12px var(--body);letter-spacing:.08em;color:var(--soft);background:none;border:0;padding:7px 12px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper-ink)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:10px;padding-top:28px;padding-bottom:36px}
+.hero>div{min-width:0}
+.kick{display:inline-block;font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--paper-ink);background:var(--yel);padding:6px 10px;border-radius:6px}
+h1{font-family:var(--disp);font-weight:400;font-size:clamp(56px,17.5vw,108px);line-height:.9;text-transform:uppercase;margin:18px 0 14px;letter-spacing:.01em}
+h1 span{color:var(--mint)}
+.hero p.lead{font-size:18px;color:var(--soft);max-width:30ch}
+.bottle{width:84px;height:262px;flex:none}
+.bottle svg{width:100%;height:100%;overflow:visible}
+.scroll{margin-top:22px;font-size:13px;font-weight:700;color:var(--mute);display:flex;align-items:center;gap:8px}
+.scroll::after{content:"";width:8px;height:8px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);margin-top:-4px}
+
+section{padding-top:44px;padding-bottom:44px}
+.num{font-family:var(--disp);font-size:15px;letter-spacing:.12em;color:var(--yel);text-transform:uppercase}
+h2{font-family:var(--disp);font-weight:400;font-size:clamp(40px,12vw,58px);line-height:.95;text-transform:uppercase;margin:8px 0 14px}
+p.sub{font-size:17px;color:var(--soft)}
+
+/* scan card */
+.scan{margin-top:22px;background:var(--paper);color:var(--paper-ink);border-radius:24px;padding:22px;box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.scan .head{display:flex;justify-content:space-between;align-items:center;gap:10px;padding-bottom:14px;border-bottom:1.5px solid #E3ECE8}
+.scan .head b{font-size:15px}
+.chip{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;border-radius:999px;background:#FFF3C4;color:#7A5B00}
+.item{display:flex;align-items:center;gap:14px;padding:15px 0;border-bottom:1.5px solid #E3ECE8}
+.item:last-of-type{border-bottom:0}
+.dot{flex:none;width:34px;height:34px;border-radius:50%;background:#E3ECE8;display:grid;place-items:center;transition:background .3s}
+.dot svg{width:16px;height:16px;opacity:0;transform:scale(.4);transition:all .3s}
+.item.on .dot{background:#18A866}
+.item.on .dot svg{opacity:1;transform:scale(1)}
+.item .t{font-size:13px;color:#5C6F69}
+.item .v{font-size:16px;font-weight:700}
+.reveal{margin-top:14px;width:100%;font:800 16px var(--body);color:#fff;background:#0D2A24;border:0;border-radius:14px;padding:15px;cursor:pointer}
+.reveal:disabled{opacity:.55;cursor:default}
+
+/* stats */
+.stats{display:grid;gap:12px;margin-top:22px}
+.stat{display:grid;grid-template-columns:auto 1fr;align-items:center;gap:18px;padding:18px 20px;border:1.5px solid var(--line);border-radius:20px;background:rgba(0,0,0,.14)}
+.stat .n{font-family:var(--disp);font-size:52px;line-height:1;color:var(--mint);min-width:2.6ch}
+.stat .d{font-size:15px;color:var(--soft)}
+.stat .d b{display:block;color:var(--ink);font-size:16px}
+
+/* two moves */
+.moves{display:grid;gap:14px;margin-top:22px}
+.move{border-radius:22px;padding:22px}
+.move.a{background:var(--paper);color:var(--paper-ink)}
+.move.b{background:var(--yel);color:#2A2200}
+.move .w{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;opacity:.7}
+.move h3{font-family:var(--disp);font-weight:400;font-size:34px;line-height:1;text-transform:uppercase;margin:8px 0 10px}
+.move p{font-size:16px}
+
+/* quiz */
+.quiz{margin-top:22px;background:rgba(0,0,0,.18);border:1.5px solid var(--line);border-radius:24px;padding:22px}
+.qtop{display:flex;justify-content:space-between;font-size:13px;font-weight:700;color:var(--mute)}
+.bar{height:6px;border-radius:3px;background:var(--line);margin:10px 0 18px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:var(--yel);transition:width .35s}
+.q{font-size:20px;font-weight:700;line-height:1.3;margin-bottom:16px}
+.opts{display:grid;gap:10px}
+.opt{font:700 17px var(--body);text-align:left;color:var(--ink);background:rgba(255,255,255,.08);border:1.5px solid var(--line);border-radius:14px;padding:15px 16px;cursor:pointer}
+.opt.good{background:#18A866;border-color:#18A866}
+.opt.bad{background:#C8463D;border-color:#C8463D}
+.expl{margin-top:14px;font-size:15px;color:var(--soft);min-height:1.5em}
+.next{margin-top:14px;font:800 16px var(--body);color:var(--paper-ink);background:var(--ink);border:0;border-radius:14px;padding:14px 18px;cursor:pointer}
+.score{font-family:var(--disp);font-size:72px;line-height:1;color:var(--yel)}
+
+/* plan */
+.plan{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
+.money{background:var(--paper);color:var(--paper-ink);border-radius:20px;padding:18px}
+.money .n{font-family:var(--disp);font-size:44px;line-height:1}
+.money .d{font-size:14px;margin-top:6px;color:#4A5E58}
+.kpis{list-style:none;margin-top:14px;display:grid;gap:8px}
+.kpis li{display:flex;align-items:baseline;gap:14px;padding:12px 0;border-bottom:1.5px solid var(--line);font-size:16px;color:var(--soft)}
+.kpis li b{font-family:var(--disp);font-weight:400;font-size:30px;color:var(--ink);min-width:3.2ch}
+
+/* backstage */
+.brief{margin-top:22px;background:var(--paper);color:var(--paper-ink);border-radius:22px;padding:22px}
+.brief .w{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#18A866}
+.brief p{font-size:16px;line-height:1.55;margin-top:10px}
+.brief ol{margin:10px 0 0 20px;font-size:16px;line-height:1.55}
+.copy{margin-top:14px;font:800 15px var(--body);color:var(--paper-ink);background:var(--yel);border:0;border-radius:999px;padding:12px 18px;cursor:pointer}
+.note{margin-top:14px;font-size:15px;color:var(--soft)}
+
+footer{padding-top:30px;padding-bottom:max(50px,env(safe-area-inset-bottom))}
+.end{font-family:var(--disp);font-size:clamp(46px,14vw,70px);line-height:.95;text-transform:uppercase}
+.end span{color:var(--yel)}
+.small{margin-top:16px;font-size:13px;color:var(--mute)}
+button:focus-visible,a:focus-visible{outline:3px solid var(--yel);outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
 <body>
-<div class="bg"></div>
-<div class="bubbles" id="bubbles" aria-hidden="true"></div>
+<canvas id="fizz" aria-hidden="true"></canvas>
 
-<p class="notice">Student project · Albert School, Strategic Marketing · not affiliated with Perrier or Nestlé</p>
+<div class="top wrap">
+  <span class="tag">Albert School · Strategic Marketing</span>
+  <div class="lang" role="group" aria-label="Langue / Language">
+    <button type="button" data-set="fr" aria-pressed="true">FR</button>
+    <button type="button" data-set="en" aria-pressed="false">EN</button>
+  </div>
+</div>
 
 <header class="hero wrap">
-  <p class="eyebrow">You just scanned the Source</p>
-  <h1>Perrier<br><span class="grad">2027</span></h1>
-  <div class="bar"></div>
-  <p class="tag">Proof, not polish</p>
-  <p class="lead">This is the scan we pitched: one QR code on every bottle that shows where the water comes from and what the latest independent test says. Below, the whole strategy in two minutes.</p>
-  <p class="who"><b>Gabriel Bohbot &amp; Elie Maarek</b> · Marketing Directors (role play) · pitch to the Global CMO · 19 November 2026</p>
-</header>
-
-<nav class="jump" aria-label="Sections">
-  <div class="wrap">
-    <a href="#scan">The scan</a><a href="#why">Why</a><a href="#moves">The idea</a><a href="#markets">2 markets</a><a href="#numbers">Budget &amp; KPIs</a><a href="#prompt">The prompt</a><a href="#ask">Ask us</a>
+  <div>
+    <span class="kick"><span class="fr">Tu viens de scanner</span><span class="en">You just scanned</span></span>
+    <h1>Perrier<br><span>2027</span></h1>
+    <p class="lead"><span class="fr">Et si chaque bouteille prouvait ce qu’elle contient&nbsp;?</span><span class="en">What if every bottle proved what is inside?</span></p>
+    <p class="scroll"><span class="fr">Fais défiler</span><span class="en">Scroll down</span></p>
   </div>
-</nav>
+  <div class="bottle" aria-hidden="true">
+    <svg viewBox="0 0 100 310">
+      <defs>
+        <linearGradient id="glass" x1="0" x2="1">
+          <stop offset="0" stop-color="#ffffff" stop-opacity=".18"/>
+          <stop offset=".45" stop-color="#ffffff" stop-opacity=".02"/>
+          <stop offset="1" stop-color="#000000" stop-opacity=".18"/>
+        </linearGradient>
+      </defs>
+      <rect x="38" y="0" width="24" height="16" rx="3" fill="#0D2A24"/>
+      <path id="bottleBody" d="M40 16 H60 V44 C60 70 84 92 84 132 V286 C84 300 74 308 50 308 C26 308 16 300 16 286 V132 C16 92 40 70 40 44 Z" fill="#3FBF6E"/>
+      <path d="M40 16 H60 V44 C60 70 84 92 84 132 V286 C84 300 74 308 50 308 C26 308 16 300 16 286 V132 C16 92 40 70 40 44 Z" fill="url(#glass)"/>
+      <rect x="16" y="170" width="68" height="46" fill="#F2C81E"/>
+      <circle cx="50" cy="193" r="26" fill="#0D2A24"/>
+      <text x="50" y="199" text-anchor="middle" font-family="Anton,Impact,sans-serif" font-size="17" fill="#fff">2027</text>
+      <path d="M27 120 C27 100 33 92 38 84" stroke="#fff" stroke-opacity=".5" stroke-width="3" fill="none" stroke-linecap="round"/>
+    </svg>
+  </div>
+</header>
 
 <main class="wrap">
 
 <section id="scan">
-  <h2>What every bottle would show</h2><div class="bar"></div>
-  <div class="source">
-    <p class="lbl">Source Perrier · scan result</p>
-    <h3>Your bottle, in the open</h3>
-    <div class="row"><span>Borehole</span><span>Vergèze, Gard (France)</span></div>
-    <div class="row"><span>Bottled</span><span>Date and line of this bottle</span></div>
-    <div class="row"><span>Latest lab test</span><span class="ok">Independent lab, raw results</span></div>
-    <div class="row"><span>Watch</span><span>Source Live from Vergèze</span></div>
-    <p class="demo">Prototype screen: it shows what the page would contain, not real test results.</p>
+  <p class="num">01</p>
+  <h2><span class="fr">La bouteille parle</span><span class="en">The bottle talks</span></h2>
+  <p class="sub"><span class="fr">Voici ce que le QR de chaque bouteille montrerait. Appuie pour voir.</span><span class="en">This is what the QR code on every bottle would show. Tap to see it.</span></p>
+  <div class="scan">
+    <div class="head"><b>Source Perrier</b><span class="chip"><span class="fr">Prototype</span><span class="en">Prototype</span></span></div>
+    <div class="item"><span class="dot"><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><p class="t"><span class="fr">D’où vient l’eau</span><span class="en">Where the water comes from</span></p><p class="v"><span class="fr">Forage de Vergèze, Gard</span><span class="en">Borehole in Vergèze, France</span></p></div></div>
+    <div class="item"><span class="dot"><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><p class="t"><span class="fr">Quand elle a été embouteillée</span><span class="en">When it was bottled</span></p><p class="v"><span class="fr">Date et ligne de ta bouteille</span><span class="en">Date and line of your bottle</span></p></div></div>
+    <div class="item"><span class="dot"><svg viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><p class="t"><span class="fr">Ce que dit le labo</span><span class="en">What the lab says</span></p><p class="v"><span class="fr">Dernier test, labo indépendant, résultats bruts</span><span class="en">Latest test, independent lab, raw results</span></p></div></div>
+    <button class="reveal" id="reveal" type="button"><span class="fr">Vérifier ma bouteille</span><span class="en">Check my bottle</span></button>
   </div>
 </section>
 
 <section id="why">
-  <h2>Why Perrier needs this</h2><div class="bar"></div>
+  <p class="num">02</p>
+  <h2><span class="fr">Pourquoi maintenant</span><span class="en">Why now</span></h2>
+  <p class="sub"><span class="fr">Tout le monde connaît Perrier. Le problème, c’est la confiance.</span><span class="en">Everyone knows Perrier. The problem is trust.</span></p>
   <div class="stats">
-    <div class="card stat"><div class="n grad">−14%</div><div class="t">Perrier sales in France</div><div class="s">Jan–Apr 2025, while bottled water grew +2.5%</div></div>
-    <div class="card stat"><div class="n grad">2/7</div><div class="t">Boreholes still “mineral”</div><div class="s">Vergèze authorisation, Dec 2025</div></div>
-    <div class="card stat"><div class="n grad">50%</div><div class="t">Sold to Platinum Equity</div><div class="s">Peranel joint venture, announced July 2026</div></div>
-    <div class="card stat"><div class="n grad">1990</div><div class="t">The lesson</div><div class="s">160m bottles recalled; Perrier never regained its share</div></div>
+    <div class="stat"><span class="n">−14%</span><span class="d"><b><span class="fr">de ventes en France</span><span class="en">sales in France</span></b><span class="fr">début 2025, alors que le marché de l’eau montait</span><span class="en">early 2025, while the water market grew</span></span></div>
+    <div class="stat"><span class="n">2/7</span><span class="d"><b><span class="fr">forages encore « minéraux »</span><span class="en">boreholes still “mineral”</span></b><span class="fr">à Vergèze, décembre 2025</span><span class="en">in Vergèze, December 2025</span></span></div>
+    <div class="stat"><span class="n">50%</span><span class="d"><b><span class="fr">vendu à Platinum Equity</span><span class="en">sold to Platinum Equity</span></b><span class="fr">annoncé en juillet 2026</span><span class="en">announced July 2026</span></span></div>
   </div>
-  <p class="q" style="margin-top:18px">Awareness is not the problem: everyone knows the green bottle. Perrier loses people at two points: <b>trust</b> (before buying) and <b>ritual</b> (after buying).</p>
 </section>
 
-<section id="moves">
-  <h2>Two moves, one idea: proof</h2><div class="bar"></div>
+<section id="idea">
+  <p class="num">03</p>
+  <h2><span class="fr">Notre idée</span><span class="en">Our idea</span></h2>
+  <p class="sub"><span class="fr">Deux pays, deux gestes, une seule règle&nbsp;: prouver.</span><span class="en">Two countries, two moves, one rule: prove it.</span></p>
   <div class="moves">
-    <div class="card move"><p class="k">Move 1 · France · Gen Z 18–26</p><h3>Open Source</h3><p>Radical transparency: a QR code on every bottle and can, raw content from Vergèze, an independent lab.</p><p class="fix">Fixes leak 1: trust</p></div>
-    <div class="card move light"><p class="k">Move 2 · UK · sober-curious 21–34</p><h3>The Champagne of No-Alcohol</h3><p>Maison Perrier becomes the drink you order when you are not drinking. On-trade first.</p><p class="fix">Fixes leak 2: no ritual</p></div>
+    <div class="move a"><p class="w"><span class="fr">France · 18–26 ans</span><span class="en">France · 18–26</span></p><h3>Open Source</h3><p><span class="fr">Un QR sur chaque bouteille, un live depuis la source, un labo indépendant. On montre tout, même les mauvaises nouvelles.</span><span class="en">A QR code on every bottle, a live feed from the source, an independent lab. We show everything, bad news included.</span></p></div>
+    <div class="move b"><p class="w"><span class="fr">Royaume-Uni · 21–34 ans</span><span class="en">United Kingdom · 21–34</span></p><h3>Order the green</h3><p><span class="fr">Les cocktails sans alcool Maison Perrier dans 1&nbsp;000 pubs&nbsp;: la boisson qu’on commande quand on ne boit pas.</span><span class="en">Maison Perrier alcohol-free cocktails in 1,000 pubs: the drink you order when you are not drinking.</span></p></div>
   </div>
 </section>
 
-<section id="markets">
-  <h2>Two people we design for</h2><div class="bar"></div>
-  <div class="moves">
-    <div class="card move"><p class="k">France</p><h3>Inès, 22</h3><p>Master’s student in Lyon. “I want a drink I can trust, and that looks good in my story.” 48% of under-35 drinkers did Dry January 2026.</p></div>
-    <div class="card move"><p class="k">United Kingdom</p><h3>James, 28</h3><p>Product designer in Manchester. “I want a great night out and a great Saturday run.” 43% of UK 18–24s drink low or no alcohol.</p></div>
-  </div>
-  <div class="card" style="margin-top:14px">
-    <ul class="steps">
-      <li><div class="num">1</div><div><b>Scan the Source</b><span>A QR code on every bottle, like the one you just used.</span></div></li>
-      <li><div class="num">2</div><div><b>Source Live and creators</b><span>A raw livestream from Vergèze, 30 micro-creators, no script.</span></div></li>
-      <li><div class="num">3</div><div><b>Order the green</b><span>1,000 UK pubs and bars with Maison Perrier mocktails, run clubs, #OrderTheGreen.</span></div></li>
-    </ul>
-  </div>
+<section id="quiz">
+  <p class="num">04</p>
+  <h2><span class="fr">Quiz 30 secondes</span><span class="en">30-second quiz</span></h2>
+  <p class="sub"><span class="fr">Trois questions. Tu connais vraiment Perrier&nbsp;?</span><span class="en">Three questions. Do you really know Perrier?</span></p>
+  <div class="quiz" id="quizBox" aria-live="polite"></div>
 </section>
 
-<section id="numbers">
-  <h2>Budget and KPIs</h2><div class="bar"></div>
-  <div class="budget">
-    <div class="card"><div class="n grad">€3.0m</div><div class="t">France: TikTok, Instagram, creators, QR and independent lab</div></div>
-    <div class="card"><div class="n grad">£2.4m</div><div class="t">UK: on-trade programme first, then social</div></div>
+<section id="plan">
+  <p class="num">05</p>
+  <h2><span class="fr">Le plan 2027</span><span class="en">The 2027 plan</span></h2>
+  <div class="plan">
+    <div class="money"><p class="n">€3.0m</p><p class="d"><span class="fr">France&nbsp;: TikTok, créateurs, QR et labo</span><span class="en">France: TikTok, creators, QR and lab</span></p></div>
+    <div class="money"><p class="n">£2.4m</p><p class="d"><span class="fr">UK&nbsp;: pubs d’abord, puis réseaux</span><span class="en">UK: pubs first, then social</span></p></div>
   </div>
-  <p class="q" style="margin:16px 0 12px">Five targets for December 2027:</p>
-  <div class="kpis">
-    <div class="card kpi"><div class="n grad">+15</div><div class="t"><b>Trust points</b> among French 18–26s</div></div>
-    <div class="card kpi"><div class="n grad">+3%</div><div class="t"><b>Value sales</b> in France, back to growth</div></div>
-    <div class="card kpi"><div class="n grad">2m</div><div class="t"><b>QR scans</b>, 25% scanning again within 90 days</div></div>
-    <div class="card kpi"><div class="n grad">1,000</div><div class="t"><b>UK outlets</b>, 70% still ordering after 6 months</div></div>
-    <div class="card kpi"><div class="n grad">3:1</div><div class="t"><b>ROAS and LTV:CAC</b>, CTR at least 1.7%</div></div>
-  </div>
-</section>
-
-<section id="prompt">
-  <h2>Behind the pitch: the prompt</h2><div class="bar"></div>
-  <p class="q" style="margin-bottom:14px">Our strategy is about showing the raw work, so we show ours too. We built this pitch with an AI assistant (Claude). Here is the brief we gave it, translated and shortened:</p>
-  <div class="prompt" id="promptText">Read all our Strategic Marketing course sessions first, then confirm you understood the course and the brief (session 2). We are two Marketing Directors of a brand inside a large group, pitching our 2027 strategy to the Global CMO, Nadia: 10 minutes + 5 minutes of Q&amp;A, 10 to 20 slides.
-
-Brand: Perrier. Cover where the brand stands in 2025–26, what changes in 2027 and why, two priority markets (ideal customer, segmentation, channels and expected results, content ideas, a realistic budget, loyalty) and 4 to 5 KPIs with realistic targets.
-
-Deliver: (1) a rock-solid deck in English, using real facts and a design inspired by Perrier; (2) an English report in the same colours; (3) a speaker split between Gabriel and Elie, slide by slide, the hardest slides for Elie; (4) a French prep guide that ends with likely jury questions, answered in English with the French translation.
-Then we iterated: a green-to-blue design, a video transition, a live QR code that opens this page.</div>
-  <button class="copy" id="copyBtn" type="button">Copy the prompt</button>
-  <ul class="checks">
-    <li>Every number was checked against a dated source (list below).</li>
-    <li>We chose the brand, the two markets and the final ask ourselves, and rewrote the script in our own words.</li>
-    <li>The AI drafted; we decided. Proof, not polish, applies to us too.</li>
+  <ul class="kpis">
+    <li><b>+15</b><span class="fr">points de confiance chez les 18–26 ans</span><span class="en">trust points among 18–26s</span></li>
+    <li><b>+3%</b><span class="fr">de ventes en France, retour à la croissance</span><span class="en">sales in France, back to growth</span></li>
+    <li><b>2M</b><span class="fr">de scans de QR en 2027</span><span class="en">QR scans in 2027</span></li>
+    <li><b>1000</b><span class="fr">pubs au Royaume-Uni</span><span class="en">pubs in the UK</span></li>
+    <li><b>3:1</b><span class="fr">de retour sur chaque euro investi</span><span class="en">return on every euro spent</span></li>
   </ul>
 </section>
 
-<section id="ask">
-  <h2>Ask us anything</h2><div class="bar"></div>
-  <details><summary>Isn’t a QR code on a bottle a gimmick?</summary><p>Only if it shows marketing. Ours shows raw data, including bad results. A bad result published first is what makes the system credible.</p></details>
-  <details><summary>Why the UK and not another market?</summary><p>Maison Perrier launched there in February 2026, the low and no-alcohol market is about £413m, and the gap is distribution in pubs. That is a problem a budget can solve.</p></details>
-  <details><summary>What if a test is bad?</summary><p>We publish it first, with what we are doing about it. Transparency that only shows good news is not transparency.</p></details>
-  <details><summary>Isn’t +3% sales modest?</summary><p>On purpose. After a year of decline, getting back to growth is the realistic first target; trust is the leading indicator.</p></details>
-</section>
-
-<section>
-  <h2>Sources</h2><div class="bar"></div>
-  <div class="src">
-    <p>Circana via 24matins; AFP; Économie Matin (French sales, 2025)</p>
-    <p>Nestlé full-year 2025 results; Nestlé UK (Maison Perrier, Feb 2026)</p>
-    <p>Peranel announcement, 23 July 2026; Nanterre court ruling, Nov 2025</p>
-    <p>Toluna-Harris (Dry January 2026); UK low/no-alcohol market studies 2025</p>
-    <p>Superads, Stackmatix, WordStream (CPM and CTR benchmarks)</p>
+<section id="backstage">
+  <p class="num">06</p>
+  <h2><span class="fr">Les coulisses</span><span class="en">Behind the scenes</span></h2>
+  <p class="sub"><span class="fr">Notre stratégie, c’est montrer le travail brut. Alors on montre le nôtre&nbsp;: ce pitch a été préparé avec une IA, Claude.</span><span class="en">Our strategy is to show the raw work, so here is ours: this pitch was prepared with an AI, Claude.</span></p>
+  <div class="brief">
+    <p class="w"><span class="fr">Notre consigne, en résumé</span><span class="en">Our brief, in short</span></p>
+    <div class="fr" id="briefFr">
+      <p>Lis tous nos cours de Strategic Marketing. On est deux directeurs marketing de Perrier et on présente notre stratégie 2027 à la CMO du groupe&nbsp;: 10 minutes, 10 à 20 slides, deux marchés prioritaires, un budget réaliste et 4 à 5 KPIs.</p>
+      <ol><li>Une présentation en anglais, avec des faits réels.</li><li>Un rapport écrit.</li><li>Qui dit quoi, slide par slide.</li><li>Un guide en français avec les questions du jury.</li></ol>
+    </div>
+    <div class="en" id="briefEn">
+      <p>Read all our Strategic Marketing classes. We are two Perrier marketing directors presenting our 2027 strategy to the group CMO: 10 minutes, 10 to 20 slides, two priority markets, a realistic budget and 4 to 5 KPIs.</p>
+      <ol><li>A deck in English, built on real facts.</li><li>A written report.</li><li>Who says what, slide by slide.</li><li>A French guide with the jury’s likely questions.</li></ol>
+    </div>
+    <button class="copy" id="copyBtn" type="button"><span class="fr">Copier la consigne</span><span class="en">Copy the brief</span></button>
   </div>
+  <p class="note"><span class="fr">L’IA a proposé, on a décidé&nbsp;: la marque, les deux marchés, les chiffres vérifiés et le texte final sont à nous.</span><span class="en">The AI proposed, we decided: the brand, the two markets, the checked numbers and the final script are ours.</span></p>
 </section>
 
 </main>
 
 <footer class="wrap">
-  <p class="big grad">Proof, not polish.</p>
-  <p>Gabriel Bohbot &amp; Elie Maarek · Albert School · MSc 1 · 2026</p>
-  <p style="margin-top:6px">Student project. Perrier is a trademark of its owners; this page is not affiliated with Perrier, Nestlé or Platinum Equity.</p>
+  <p class="end">Proof,<br><span>not polish.</span></p>
+  <p class="small">Gabriel Bohbot &amp; Elie Maarek · Albert School · MSc 1 · 2026</p>
+  <p class="small"><span class="fr">Projet étudiant, sans lien avec Perrier, Nestlé ou Platinum Equity. Les données de scan sont un prototype.</span><span class="en">Student project, not affiliated with Perrier, Nestlé or Platinum Equity. Scan data is a prototype.</span></p>
 </footer>
 
 <script>
 (function(){
-  var b=document.getElementById('bubbles');
-  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  for(var i=0;i<26;i++){
-    var e=document.createElement('i'),s=4+Math.random()*16;
-    e.style.width=e.style.height=s+'px';
-    e.style.left=(Math.random()*100)+'%';
-    e.style.setProperty('--dx',(Math.random()*40-20)+'px');
-    e.style.animationDuration=(9+Math.random()*12)+'s';
-    e.style.animationDelay=(-Math.random()*20)+'s';
-    e.style.opacity=.35+Math.random()*.5;
-    b.appendChild(e);
+  var root=document.documentElement;
+  /* language */
+  var btns=document.querySelectorAll('.lang button');
+  function setLang(l){root.setAttribute('data-l',l);root.lang=l;btns.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.set===l)});try{localStorage.setItem('lang',l)}catch(e){}renderQuiz()}
+  btns.forEach(function(b){b.addEventListener('click',function(){setLang(b.dataset.set)})});
+
+  /* green to blue as you scroll */
+  var G=[11,93,59],B=[10,52,128],BG=[63,191,110],BB=[110,184,240];
+  var body=document.getElementById('bottleBody');
+  function mix(a,b,t){return 'rgb('+a.map(function(v,i){return Math.round(v+(b[i]-v)*t)}).join(',')+')'}
+  function onScroll(){
+    var h=document.documentElement.scrollHeight-innerHeight;var t=h>0?Math.min(1,Math.max(0,scrollY/h)):0;
+    document.body.style.backgroundColor=mix(G,B,t);body.setAttribute('fill',mix(BG,BB,t));
+    var m=document.querySelector('meta[name=theme-color]');if(m)m.content=mix(G,B,t);
   }
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  /* scan reveal */
+  var rv=document.getElementById('reveal');
+  rv.addEventListener('click',function(){
+    var items=document.querySelectorAll('.item');rv.disabled=true;
+    items.forEach(function(it,i){setTimeout(function(){it.classList.add('on')},350*(i+1))});
+    setTimeout(function(){rv.innerHTML='<span class="fr">Bouteille vérifiée</span><span class="en">Bottle checked</span>'},350*(items.length+1));
+  });
+
+  /* quiz */
+  var Q=[
+    {fr:'En 1990, combien de bouteilles Perrier ont été rappelées ?',en:'In 1990, how many Perrier bottles were recalled?',
+     o:[{fr:'16 millions',en:'16 million'},{fr:'160 millions',en:'160 million'},{fr:'1,6 milliard',en:'1.6 billion'}],a:1,
+     x:{fr:'160 millions, à cause de traces de benzène. La marque n’a jamais retrouvé sa part de marché.',en:'160 million, because of traces of benzene. The brand never regained its market share.'}},
+    {fr:'Combien de forages de Vergèze gardent le nom « eau minérale naturelle » ?',en:'How many Vergèze boreholes keep the “natural mineral water” label?',
+     o:[{fr:'2 sur 7',en:'2 out of 7'},{fr:'5 sur 7',en:'5 out of 7'},{fr:'Les 7',en:'All 7'}],a:0,
+     x:{fr:'Seulement 2 sur 7, depuis décembre 2025. D’où l’idée de tout montrer.',en:'Only 2 out of 7, since December 2025. Hence the idea of showing everything.'}},
+    {fr:'Quelle part des moins de 35 ans a fait le Dry January 2026 ?',en:'What share of under-35s did Dry January 2026?',
+     o:[{fr:'18 %',en:'18%'},{fr:'48 %',en:'48%'},{fr:'72 %',en:'72%'}],a:1,
+     x:{fr:'48 % (Toluna-Harris). Le sans-alcool, c’est maintenant.',en:'48% (Toluna-Harris). Alcohol-free is happening now.'}}
+  ];
+  var box=document.getElementById('quizBox'),qi=0,score=0,answered=false;
+  function L(){return root.getAttribute('data-l')}
+  function renderQuiz(){
+    var l=L();
+    if(qi>=Q.length){
+      box.innerHTML='<p class="score">'+score+'/3</p><p class="q" style="margin-top:10px">'+(l==='fr'?'La confiance se construit avec des preuves.':'Trust is built with proof.')+'</p><button class="next" type="button" id="again">'+(l==='fr'?'Rejouer':'Play again')+'</button>';
+      document.getElementById('again').onclick=function(){qi=0;score=0;answered=false;renderQuiz()};return;
+    }
+    var q=Q[qi];
+    var h='<div class="qtop"><span>'+(l==='fr'?'Question ':'Question ')+(qi+1)+'/3</span><span>'+(l==='fr'?'Score ':'Score ')+score+'</span></div><div class="bar"><i style="width:'+(qi/Q.length*100)+'%"></i></div><p class="q">'+q[l]+'</p><div class="opts">';
+    q.o.forEach(function(o,i){h+='<button class="opt" type="button" data-i="'+i+'">'+o[l]+'</button>'});
+    h+='</div><p class="expl" id="expl"></p>';
+    box.innerHTML=h;answered=false;
+    box.querySelectorAll('.opt').forEach(function(b){b.onclick=function(){
+      if(answered)return;answered=true;var i=+b.dataset.i;
+      if(i===q.a){score++;b.classList.add('good')}else{b.classList.add('bad');box.querySelector('[data-i="'+q.a+'"]').classList.add('good')}
+      var e=document.getElementById('expl');e.textContent=q.x[l];
+      var n=document.createElement('button');n.className='next';n.type='button';n.textContent=qi<Q.length-1?(l==='fr'?'Question suivante':'Next question'):(l==='fr'?'Voir mon score':'See my score');
+      n.onclick=function(){qi++;renderQuiz()};box.appendChild(n);
+    }});
+  }
+
+  /* copy brief */
+  document.getElementById('copyBtn').addEventListener('click',function(){
+    var el=document.getElementById(L()==='fr'?'briefFr':'briefEn'),t=el.innerText,btn=this,old=btn.innerHTML;
+    function done(){btn.textContent=L()==='fr'?'Copié':'Copied';setTimeout(function(){btn.innerHTML=old},1600)}
+    function fb(){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');done()}catch(e){}document.body.removeChild(a)}
+    try{navigator.clipboard.writeText(t).then(done,fb)}catch(e){fb()}
+  });
+
+  /* fizz: fine bubbles rising */
+  var c=document.getElementById('fizz'),x=c.getContext('2d'),P=[],dpr=Math.min(2,devicePixelRatio||1),W,H;
+  function size(){W=innerWidth;H=innerHeight;c.width=W*dpr;c.height=H*dpr;c.style.width=W+'px';c.style.height=H+'px';x.setTransform(dpr,0,0,dpr,0,0)}
+  size();addEventListener('resize',size);
+  for(var i=0;i<38;i++)P.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:1+Math.random()*3.2,s:.25+Math.random()*.7,w:Math.random()*6});
+  var still=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function draw(){
+    x.clearRect(0,0,W,H);
+    P.forEach(function(p){
+      if(!still){p.y-=p.s;p.w+=.02;if(p.y<-10){p.y=H+10;p.x=Math.random()*W}}
+      x.beginPath();x.arc(p.x+Math.sin(p.w)*2,p.y,p.r,0,7);x.strokeStyle='rgba(255,255,255,.45)';x.lineWidth=1;x.stroke();
+    });
+    if(!still)requestAnimationFrame(draw);
+  }
+  draw();
+
+  var saved='fr';try{saved=localStorage.getItem('lang')||'fr'}catch(e){}
+  setLang(saved==='en'?'en':'fr');
 })();
-document.getElementById('copyBtn').addEventListener('click',function(){
-  var t=document.getElementById('promptText').innerText,btn=this;
-  function done(){btn.textContent='Copied';setTimeout(function(){btn.textContent='Copy the prompt'},1800)}
-  try{navigator.clipboard.writeText(t).then(done,function(){fallback()})}catch(e){fallback()}
-  function fallback(){var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();try{document.execCommand('copy');done()}catch(e){}document.body.removeChild(a)}
-});
 </script>
 </body>
 </html>
